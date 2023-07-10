@@ -1,0 +1,12 @@
+.Nav{
+    background-color: #1a1a1a;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 20px 5vw ;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: rgb(0 0 0 / 50%) 0px 10px 20px;
+}
