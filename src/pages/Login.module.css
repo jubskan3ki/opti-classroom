@@ -5,6 +5,7 @@
 .ContentLeft{
     width: 50%;
     height: 100%;
+    
 }
 
 .ContentRight{
@@ -18,9 +19,15 @@
     background-color: rgba(65, 133, 150, 0.25);
     border: 1 #FFF;
     padding: 40px;
+    display: flex;
+    flex-direction: column;
 }
 
 .Title {
     width: 100%;
     text-align: center;
+}
+
+.input{
+    background-color: #FFF;
 }
