@@ -1,5 +1,7 @@
 import React from 'react'
 import styles from './Home.module.css';
+import {faHouse , faClipboardList , faCalendarDays ,faGear , faArrowRightToBracket} from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 export default function home() {
     return (
         <div className={styles.Content}>
@@ -15,6 +17,11 @@ export default function home() {
                             <option value="Room2">Room2</option>
                             <option value="Room3">Room3</option>
                         </select>
+
+                        <div>
+
+                        </div>
+
                     </div>
                     <div className={styles.DivRoomLeft}>
                         <div className={styles.Card}>

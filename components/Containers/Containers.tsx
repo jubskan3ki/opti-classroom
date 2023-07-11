@@ -4,7 +4,10 @@ import Image from 'next/image';
 import styles from './Containers.module.css';
 import Background from './../Union.svg';
 import Head from 'next/head';
+import { useRouter } from 'next/router'
+
 export default function Containers(props : any) {
+    const router = useRouter()
     return (
         <>
             <Head>
@@ -12,7 +15,7 @@ export default function Containers(props : any) {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <Navbar />
+            {router.pathname === '/' ? '' : <Navbar />}
             {props.children}
             <Image className={styles.Background} src={Background} alt='Background'/>
         </>
