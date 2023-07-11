@@ -33,6 +33,7 @@ body{
     color: #1F1F1F;
     height: 100%;
     overflow-x: hidden;
+    overflow-y: hidden;
   
 }
 
