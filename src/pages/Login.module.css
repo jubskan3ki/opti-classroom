@@ -1,0 +1,26 @@
+.Content{
+    display: flex;
+}
+
+.ContentLeft{
+    width: 50%;
+    height: 100%;
+}
+
+.ContentRight{
+    width: 50%;
+    height: 100%;
+}
+
+.CardLeft, .CardRight{
+    margin: 4rem;
+    border-radius: 10px;
+    background-color: rgba(65, 133, 150, 0.25);
+    border: 1 #FFF;
+    padding: 40px;
+}
+
+.Title {
+    width: 100%;
+    text-align: center;
+}
