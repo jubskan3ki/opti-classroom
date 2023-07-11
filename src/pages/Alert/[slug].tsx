@@ -1,7 +1,7 @@
 import React from 'react'
 import { useRouter } from 'next/router'
 
-export default function alert() {
+export default function Alert() {
 
   const router = useRouter()
 
