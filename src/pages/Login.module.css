@@ -14,7 +14,8 @@
 }
 
 .CardLeft, .CardRight{
-    margin: 4rem;
+    margin-left: 4rem;
+    margin-right: 4rem;
     border-radius: 10px;
     background-color: rgba(65, 133, 150, 0.25);
     border: 1 #FFF;
@@ -28,6 +29,20 @@
     text-align: center;
 }
 
-.input{
-    background-color: #FFF;
+.Img{
+    padding: auto;
+    max-width: 150px;
 }
+
+.Switch {
+    color: black;
+   
+}
+
+.ContainerSwitch{
+    display: flex; 
+    margin-bottom: 20px;
+    align-items: center;
+    gap: 20px;
+}
+

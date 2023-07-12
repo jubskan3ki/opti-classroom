@@ -1,21 +1,35 @@
+import React, { useState } from 'react';
 import Head from 'next/head'
 import styles from './Login.module.css'
 import Image from 'next/image' 
-import CardLoginLeft from '../Asset/png/CardLoginLeft.png';
+import CardLoginLeft from '../Asset/png/CardLoginLeft.svg';
 import Button from '../../components/Button/Button'
 import Input from '../../components/Input/Input'
+import { Switch } from '@nextui-org/react';
+
+
 
 export default function Home() {
+  const [isChecked, setIsChecked] = useState(false);
+
+  const handleSwitchChange = () => {
+    setIsChecked(!isChecked);
+  };
   return (
       <main >
             <div className={styles.Content}>
                 <div className={styles.ContentLeft}>
                     <div className={styles.CardLeft}>
                     <h1 className={styles.Title}>Se connecter</h1>
-                    <Image src={CardLoginLeft} alt='CardLoginLeft'/>
+                    {/* <Image className={styles.Img} src={CardLoginLeft} alt='CardLoginLeft'/> */}
                     <Input placeholder="Entrez votre nom" />
-                    <input className={styles.input} placeholder='test'/>
-                    <switch>test</switch>
+                    <Input placeholder="Adresse email" />
+                    <div className={styles.ContainerSwitch}>
+                      <Switch className={styles.Switch}/>
+                      <span>Rester connecter ?</span>
+                    </div>
+                    
+                    {/* <Switch label="switch" onChange={handleSwitchChange}/> */}
                     <Button text="CONTINUE" />
                 </div>
             </div>
