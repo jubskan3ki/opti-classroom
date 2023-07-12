@@ -2,21 +2,31 @@
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-gap: 2.25vw;
+    height: 92.5vh;
 }
 
 .ContentLeft{
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
     gap: 1.25vw;
+    height: 92.5vh; 
 }
 
 .ContentRight{
-    height: 100%;
-    width: 100%;
     padding: 10px;
     border-radius: 10px;
-    box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 5px 5px 0px rgb(0 0 0 / 25%);
     background-color: white;
+    height: 92.5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.DivAlert{
+    overflow: auto;
+    flex-direction: column;
+    display: flex;
 }
 
 .Card{
