@@ -5,7 +5,9 @@ import Image from 'next/image'
 import CardLoginLeft from '../Asset/png/CardLoginLeft.svg';
 import Button from '../../components/Button/Button'
 import Input from '../../components/Input/Input'
-import Switch from '../../components/Switch/Switch';
+import { Switch } from '@nextui-org/react';
+
+
 
 export default function Home() {
   const [isChecked, setIsChecked] = useState(false);
@@ -19,11 +21,15 @@ export default function Home() {
                 <div className={styles.ContentLeft}>
                     <div className={styles.CardLeft}>
                     <h1 className={styles.Title}>Se connecter</h1>
-                    <Image className={styles.Img} src={CardLoginLeft} alt='CardLoginLeft'/>
+                    {/* <Image className={styles.Img} src={CardLoginLeft} alt='CardLoginLeft'/> */}
                     <Input placeholder="Entrez votre nom" />
                     <Input placeholder="Adresse email" />
-                    <switch>test</switch>
-                    <Switch label="test" onChange={handleSwitchChange}/>
+                    <div className={styles.ContainerSwitch}>
+                      <Switch className={styles.Switch}/>
+                      <span>Rester connecter ?</span>
+                    </div>
+                    
+                    {/* <Switch label="switch" onChange={handleSwitchChange}/> */}
                     <Button text="CONTINUE" />
                 </div>
             </div>
