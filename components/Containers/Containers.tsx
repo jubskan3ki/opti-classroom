@@ -15,7 +15,7 @@ export default function Containers(props : any) {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            {router.pathname === '/' ? '' : <Navbar />}
+            {router.pathname === '/' ? <div></div> : <Navbar />}
             {props.children}
             <Image className={styles.Background} src={Background} alt='Background'/>
         </>

@@ -7,8 +7,6 @@ import Button from '../../components/Button/Button'
 import Input from '../../components/Input/Input'
 import { Switch } from '@nextui-org/react';
 
-
-
 export default function Home() {
   const [isChecked, setIsChecked] = useState(false);
 
