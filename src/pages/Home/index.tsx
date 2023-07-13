@@ -4,8 +4,12 @@ import { faHouse, faClipboardList, faCalendarDays, faGear, faArrowRightToBracket
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import CardSwitch from '../../../components/CardSwitch/CardSwitch';
 import CardAlert from '../../../components/CardAlert/CardAlert';
+import Select from '../../../components/Select/Select';
 
 export default function Home() {
+
+    const [selectedValue, setSelectedValue] = useState('');
+
     const [switches, setSwitches] = useState([
         {
             Etat: true,
@@ -72,6 +76,31 @@ export default function Home() {
         }
     ]);
 
+    const [selects, setSelects] = useState([
+        {
+            value: 'Name1',
+            label: 'Name1',
+            id: 'id1'
+        },
+        {
+            value: 'Name2',
+            label: 'Name2',
+            id: 'id2'
+        },
+        {
+            value: 'Name3',
+            label: 'Name3',
+            id: 'id3'
+        },
+        {
+            value: 'Name4',
+            label: 'Name4',
+            id: 'id4'
+        }
+    ]);
+
+
+
     const handleSwitchChange = (id: string) => {
         setSwitches(prevSwitches => {
             return prevSwitches.map(switchItem => {
@@ -86,6 +115,10 @@ export default function Home() {
         });
     };
 
+    const handleSelectChange = (id: string) => {
+        setSelectedValue(id);
+    };
+
     return (
         <div className={styles.Content}>
             <div className={styles.ContentLeft}>
@@ -93,11 +126,12 @@ export default function Home() {
 
                 <div className={styles.DivRoom}>
                     <div className={styles.SelectRoom}>
-                        <select name="Room">
-                            <option value="Room1">Room1</option>
-                            <option value="Room2">Room2</option>
-                            <option value="Room3">Room3</option>
-                        </select>
+                        <Select 
+                            id="01" 
+                            options={selects} 
+                            selectedValue={selectedValue}
+                            onChange={handleSelectChange}    
+                        />
                         <div></div>
                     </div>
                     <div className={styles.DivRoomLeft}>
