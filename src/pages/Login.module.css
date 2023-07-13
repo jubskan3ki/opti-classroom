@@ -1,27 +1,30 @@
 .Content{
     display: flex;
+    justify-content: space-around;
+    height: 100%;
+    width: 100%;
 }
 
 .ContentLeft{
-    width: 50%;
     height: 100%;
+    
     
 }
 
 .ContentRight{
-    width: 50%;
     height: 100%;
+    
 }
 
 .CardLeft, .CardRight{
-    margin-left: 4rem;
-    margin-right: 4rem;
     border-radius: 10px;
     background-color: rgba(65, 133, 150, 0.25);
     border: 1 #FFF;
     padding: 40px;
     display: flex;
     flex-direction: column;
+    height: 100%;
+    max-width: 450px;
 }
 
 .Title {
@@ -30,8 +33,8 @@
 }
 
 .Img{
-    padding: auto;
-    max-width: 150px;
+    padding-top: 50px;
+    padding-bottom: 30px;
 }
 
 .Switch {
