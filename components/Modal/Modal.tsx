@@ -1,16 +1,20 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 
-const Modal = ({ isOpen, onClose, children }) => {
+interface ModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  children: ReactNode;
+}
+
+const Modal = ({ isOpen, onClose, children }: ModalProps) => {
   if (!isOpen) {
     return null;
   }
 
   return (
-    <div >
-      <div >
-        <button onClick={onClose}>
-          &times;
-        </button>
+    <div>
+      <div>
+        <button onClick={onClose}>&times;</button>
         {children}
       </div>
     </div>
@@ -18,3 +22,4 @@ const Modal = ({ isOpen, onClose, children }) => {
 };
 
 export default Modal;
+

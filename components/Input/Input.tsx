@@ -1,7 +1,11 @@
 import React from 'react';
-import styles from './Input.module.css'
+import styles from './Input.module.css';
 
-function Input({ placeholder }) {
+interface InputProps {
+  placeholder: string;
+}
+
+function Input({ placeholder }: InputProps) {
   return <input className={styles.Input} type="text" placeholder={placeholder} />;
 }
 
