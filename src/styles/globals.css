@@ -9,11 +9,11 @@ html {
 }
 
 *::-webkit-scrollbar-track {
-    background-color: #271622;
+    background-color: #316572;
 }
 
 *::-webkit-scrollbar-thumb {
-    background-color: #474747;
+    background-color: #62AABC;
     border-radius: 10px;
 }
 
@@ -221,7 +221,7 @@ small{
     small{
         font-size:1vw;
     }
-      
+
 }
 
 @media (max-width:1024px) {
@@ -304,6 +304,7 @@ small{
     small{
         font-size:1.25vw;
     }  
+
 }
 
 @media (max-width:800px) {
@@ -387,6 +388,7 @@ small{
     small{
         font-size:1.5vw;
     }
+
 }   
 
 
@@ -472,6 +474,7 @@ small{
     small{
         font-size:2.5vw;
     }
+
 }
 
 .button{

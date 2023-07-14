@@ -13,10 +13,19 @@ interface CardAlertProps {
 export default function CardAlert(props: CardAlertProps) {
     
     const { Room, Type, Resum, id } = props;
-
+    
     return (
         <div className={styles.CardAlert} id={id}>
             <Image src={CardTemp} alt='CardTemp'/>
+            <div className={styles.CardAlertContent}>
+                <div className={styles.CardAlertType}>
+                    <small>{Type}</small>
+                </div>    
+                <div className={styles.CardAlertResum}>
+                    <h4>{Room}</h4>
+                    <p>{Resum}</p>
+                </div>
+            </div>
         </div>
     );
 }

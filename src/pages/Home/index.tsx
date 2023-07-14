@@ -1,14 +1,21 @@
 import React, { useState } from 'react';
 import styles from './Home.module.css';
-import { faHouse, faClipboardList, faCalendarDays, faGear, faArrowRightToBracket, faBolt } from '@fortawesome/free-solid-svg-icons';
+import Image from 'next/image'
+import { faHouse, faClipboardList, faCalendarDays, faGear, faArrowRightToBracket, faBolt , faDroplet , faSun , faTemperatureQuarter} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import CardSwitch from '../../../components/CardSwitch/CardSwitch';
 import CardAlert from '../../../components/CardAlert/CardAlert';
 import Select from '../../../components/Select/Select';
+import Back from '../../Asset/svg/backNight.svg';
 
 export default function Home() {
 
     const [selectedValue, setSelectedValue] = useState('');
+
+    const [selectStat, setSelectStat] = useState([{
+        light : '45',
+        water : '55'
+    }]);
 
     const [switches, setSwitches] = useState([
         {
@@ -122,8 +129,21 @@ export default function Home() {
     return (
         <div className={styles.Content}>
             <div className={styles.ContentLeft}>
-                <div className={styles.Card}></div>
-
+                <div className={styles.CardProfil}>
+                    <Image src={Back} alt="Back"/>
+                    <div className={styles.CardProfilContent}>
+                        <div>
+                            <h1>Bonjour , </h1>
+                            <h2>Bienvenu sur Opti-ClassRoom [Nom]</h2>
+                        </div>
+                        <div className={styles.CardProfillLegend}>
+                            <div>
+                                <h4>Date</h4>
+                                <h4><FontAwesomeIcon icon={faTemperatureQuarter} /> 15 C</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div className={styles.DivRoom}>
                     <div className={styles.SelectRoom}>
                         <Select 
@@ -132,7 +152,14 @@ export default function Home() {
                             selectedValue={selectedValue}
                             onChange={handleSelectChange}    
                         />
-                        <div></div>
+                        <div className={styles.SelectStat} >
+                            <FontAwesomeIcon icon={faDroplet} />
+                            <p>{selectStat[0].water}</p>
+                        </div>
+                        <div className={styles.SelectStat}>
+                            <FontAwesomeIcon icon={faSun} />
+                            <p>{selectStat[0].light}</p>
+                        </div>
                     </div>
                     <div className={styles.DivRoomLeft}>
                         {switches.map(switchItem => (
@@ -148,8 +175,14 @@ export default function Home() {
                     </div>
                     <div className={styles.Card}></div>
                 </div>
+                <div className={styles.DivRoomBottom}>
+                    <div className={styles.Card}>
 
-                <div className={styles.Card}></div>
+                    </div>
+                    <div className={styles.Card}>
+                    
+                    </div>
+                </div>
             </div>
             <div className={styles.ContentRight}>
 
