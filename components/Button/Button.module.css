@@ -5,4 +5,14 @@
     padding-bottom: 14px;
     cursor: pointer;
     border-radius: 10px;
+    min-width: 300px;
+}
+.Button2{
+    background-color: white;
+    color: #418596;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    cursor: pointer;
+    border-radius: 10px;
+    min-width: 300px;
 }
