@@ -7,15 +7,13 @@ import CardSwitch from '../../../components/CardSwitch/CardSwitch';
 import CardAlert from '../../../components/CardAlert/CardAlert';
 import Select from '../../../components/Select/Select';
 import Back from '../../Asset/svg/backNight.svg';
+import { format } from 'date-fns';
+import { fr } from 'date-fns/locale';
 
 export default function Home() {
 
-    const [selectedValue, setSelectedValue] = useState('');
-
-    const [selectStat, setSelectStat] = useState([{
-        light : '45',
-        water : '55'
-    }]);
+    const currentDate = new Date();
+    const formattedDate = format(currentDate, 'd MMMM yyyy', { locale: fr });
 
     const [switches, setSwitches] = useState([
         {
@@ -83,30 +81,39 @@ export default function Home() {
         }
     ]);
 
-    const [selects, setSelects] = useState([
+    const [selectRoom, setSelectselectRoom] = useState([
         {
             value: 'Name1',
             label: 'Name1',
-            id: 'id1'
+            id: 'id1',
+            light : '25',
+            water : '55'
+            
         },
         {
             value: 'Name2',
             label: 'Name2',
-            id: 'id2'
+            id: 'id2',
+            light : '65',
+            water : '55'
         },
         {
             value: 'Name3',
             label: 'Name3',
-            id: 'id3'
+            id: 'id3',
+            light : '35',
+            water : '55'
         },
         {
             value: 'Name4',
             label: 'Name4',
-            id: 'id4'
+            id: 'id4',
+            light : '15',
+            water : '55'
         }
     ]);
 
-
+    const [selectedRoom, setSelectedRoom] = useState(selectRoom[0]);
 
     const handleSwitchChange = (id: string) => {
         setSwitches(prevSwitches => {
@@ -122,8 +129,11 @@ export default function Home() {
         });
     };
 
-    const handleSelectChange = (id: string) => {
-        setSelectedValue(id);
+    const handleSelectChange = (selectedValue: string) => {
+        const room = selectRoom.find(room => room.value === selectedValue);
+        if (room) {
+            setSelectedRoom(room);
+        }
     };
 
     return (
@@ -138,29 +148,29 @@ export default function Home() {
                         </div>
                         <div className={styles.CardProfillLegend}>
                             <div>
-                                <h4>Date</h4>
+                                <h4>{formattedDate}</h4>
                                 <h4><FontAwesomeIcon icon={faTemperatureQuarter} /> 15 C</h4>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className={styles.DivRoom}>
-                    <div className={styles.SelectRoom}>
-                        <Select 
-                            id="01" 
-                            options={selects} 
-                            selectedValue={selectedValue}
-                            onChange={handleSelectChange}    
-                        />
-                        <div className={styles.SelectStat} >
-                            <FontAwesomeIcon icon={faDroplet} />
-                            <p>{selectStat[0].water}</p>
-                        </div>
-                        <div className={styles.SelectStat}>
-                            <FontAwesomeIcon icon={faSun} />
-                            <p>{selectStat[0].light}</p>
-                        </div>
+                <div className={styles.SelectRoom}>
+                    <Select 
+                        id="01" 
+                        options={selectRoom} 
+                        selectedValue={selectedRoom.value}
+                        onChange={handleSelectChange}    
+                    />
+                    <div className={styles.SelectStat} >
+                        <FontAwesomeIcon icon={faDroplet} />
+                        <p>{selectedRoom.water}</p>
                     </div>
+                    <div className={styles.SelectStat}>
+                        <FontAwesomeIcon icon={faSun} />
+                        <p>{selectedRoom.light}</p>
+                    </div>
+                </div>
                     <div className={styles.DivRoomLeft}>
                         {switches.map(switchItem => (
                             <CardSwitch
