@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import Select from '../../../components/Select/Select'
 import Button from '../../../components/Button/Button';
 import styles from './Planning.module.css'
+import CardPlanning from '../../../components/CardPlanning/CardPlanning';
+import CardPlanningButton from '../../../components/CardPlanningButton/CardPlanningButton';
 
 export default function Planning() {
 
@@ -74,6 +76,66 @@ export default function Planning() {
           onChange={handleSelectChange}    
         />
         <Button text='Setting Room' variant='primary'/>
+      </div>
+      <div className={styles.ContentPlanning}>
+        <div className={styles.Content}>
+          <div className={styles.ContentPlanningFistRow}>
+            <CardPlanning textBlack="" textBlue="" />
+          </div>
+          <CardPlanning textBlack="Début :" textBlue="9h"/>
+          <CardPlanning textBlack="Fin :" textBlue="12h30"/>
+          <CardPlanning textBlack="Début :" textBlue="13h30"/>
+          <CardPlanning textBlack="Fin :" textBlue="17h"/>
+        </div>
+        <div className={styles.Content}>
+          <div className={styles.ContentPlanningFistRow}>
+            <CardPlanning textBlack="Lundi" textBlue="17" />
+          </div>
+          <CardPlanningButton />
+          <CardPlanningButton />
+        </div>
+        <div className={styles.Content}>
+          <div className={styles.ContentPlanningFistRow}>
+            <CardPlanning textBlack="Mardi" textBlue="18" />
+          </div>
+          <CardPlanningButton />
+          <CardPlanningButton />
+        </div>
+        <div className={styles.Content}>
+          <div className={styles.ContentPlanningFistRow}>
+            <CardPlanning textBlack="Mercredi" textBlue="19" />
+          </div>
+          <CardPlanningButton />
+          <CardPlanningButton />
+        </div>
+        <div className={styles.Content}>
+          <div className={styles.ContentPlanningFistRow}>
+            <CardPlanning textBlack="Jeudi" textBlue="20" />
+          </div>
+          <CardPlanningButton />
+          <CardPlanningButton />
+        </div>
+        <div className={styles.Content}>
+          <div className={styles.ContentPlanningFistRow}>
+            <CardPlanning textBlack="Vendredi" textBlue="21" />
+          </div>
+          <CardPlanningButton />
+          <CardPlanningButton />
+        </div>
+        <div className={styles.Content}>
+          <div className={styles.ContentPlanningFistRow}>
+            <CardPlanning textBlack="Samedi" textBlue="22" />
+          </div>
+          <CardPlanningButton />
+          <CardPlanningButton />
+        </div>
+        <div className={styles.Content}>
+          <div className={styles.ContentPlanningFistRow}>
+            <CardPlanning textBlack="Dimanche" textBlue="23" />
+          </div>
+          <CardPlanningButton />
+          <CardPlanningButton />
+        </div>
       </div>
     </div>
   )

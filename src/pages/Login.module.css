@@ -18,7 +18,7 @@
 
 .CardLeft, .CardRight{
     border-radius: 10px;
-    background-color: rgba(65, 133, 150, 0.25);
+    background: #d4e0e4;
     border: 1 #FFF;
     padding: 40px;
     display: flex;
@@ -35,6 +35,8 @@
 .Img{
     padding-top: 50px;
     padding-bottom: 30px;
+    display: flex;
+    height: auto;
 }
 
 .Switch {
