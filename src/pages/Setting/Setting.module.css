@@ -1,0 +1,11 @@
+.SettingContent{    
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2.5vw;
+    align-items: center;
+    justify-items: center;
+}
+
+.SettingContent img{
+    width: 75%;
+}
