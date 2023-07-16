@@ -10,22 +10,23 @@ import { Switch } from '@nextui-org/react';
 import Modal from '../../components/Modal/Modal';
 
 export default function Home() {
-  const [isChecked, setIsChecked] = useState(false);
+    const [isChecked, setIsChecked] = useState(false);
 
-  const handleSwitchChange = () => {
-    setIsChecked(!isChecked);
-  };
-  const [modalOpen, setModalOpen] = useState(false);
+    const handleSwitchChange = () => {
+        setIsChecked(!isChecked);
+    };
+    const [modalOpen, setModalOpen] = useState(false);
 
-  const openModal = () => {
-    setModalOpen(true);
-  };
+    const openModal = () => {
+        setModalOpen(true);
+    };
 
-  const closeModal = () => {
-    setModalOpen(false);
-  };
-  return (
-      <main >
+    const closeModal = () => {
+        setModalOpen(false);
+    };
+    
+    return (
+        <main >
             <div className={styles.Content}>
                 <div className={styles.ContentLeft}>
                     <div className={styles.CardLeft}>
@@ -58,8 +59,7 @@ export default function Home() {
                 <Modal isOpen={modalOpen} onClose={closeModal}>
                     <h2>test modal</h2>
                 </Modal>
-        </div>
-      </main>
-
-  )
+            </div>
+        </main>
+    )
 }
