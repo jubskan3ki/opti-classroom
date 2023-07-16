@@ -3,6 +3,7 @@ import Select from '../../../components/Select/Select'
 import Button from '../../../components/Button/Button';
 import styles from './Planning.module.css'
 import CardPlanning from '../../../components/CardPlanning/CardPlanning';
+import CardPlanningButton from '../../../components/CardPlanningButton/CardPlanningButton';
 
 export default function Planning() {
 
@@ -90,50 +91,50 @@ export default function Planning() {
           <div className={styles.ContentPlanningFistRow}>
             <CardPlanning textBlack="Lundi" textBlue="17" />
           </div>
-          <CardPlanning textBlack="Fin :" textBlue="12h30"/>
-          <CardPlanning textBlack="Début :" textBlue="13h30"/>
+          <CardPlanningButton />
+          <CardPlanningButton />
         </div>
         <div className={styles.Content}>
           <div className={styles.ContentPlanningFistRow}>
             <CardPlanning textBlack="Mardi" textBlue="18" />
           </div>
-          <CardPlanning textBlack="Fin :" textBlue="12h30"/>
-          <CardPlanning textBlack="Début :" textBlue="13h30"/>
+          <CardPlanningButton />
+          <CardPlanningButton />
         </div>
         <div className={styles.Content}>
           <div className={styles.ContentPlanningFistRow}>
             <CardPlanning textBlack="Mercredi" textBlue="19" />
           </div>
-          <CardPlanning textBlack="Fin :" textBlue="12h30"/>
-          <CardPlanning textBlack="Début :" textBlue="13h30"/>
+          <CardPlanningButton />
+          <CardPlanningButton />
         </div>
         <div className={styles.Content}>
           <div className={styles.ContentPlanningFistRow}>
             <CardPlanning textBlack="Jeudi" textBlue="20" />
           </div>
-          <CardPlanning textBlack="Fin :" textBlue="12h30"/>
-          <CardPlanning textBlack="Début :" textBlue="13h30"/>
+          <CardPlanningButton />
+          <CardPlanningButton />
         </div>
         <div className={styles.Content}>
           <div className={styles.ContentPlanningFistRow}>
             <CardPlanning textBlack="Vendredi" textBlue="21" />
           </div>
-          <CardPlanning textBlack="Fin :" textBlue="12h30"/>
-          <CardPlanning textBlack="Début :" textBlue="13h30"/>
+          <CardPlanningButton />
+          <CardPlanningButton />
         </div>
         <div className={styles.Content}>
           <div className={styles.ContentPlanningFistRow}>
             <CardPlanning textBlack="Samedi" textBlue="22" />
           </div>
-          <CardPlanning textBlack="Fin :" textBlue="12h30"/>
-          <CardPlanning textBlack="Début :" textBlue="13h30"/>
+          <CardPlanningButton />
+          <CardPlanningButton />
         </div>
         <div className={styles.Content}>
           <div className={styles.ContentPlanningFistRow}>
             <CardPlanning textBlack="Dimanche" textBlue="23" />
           </div>
-          <CardPlanning textBlack="Fin :" textBlue="12h30"/>
-          <CardPlanning textBlack="Début :" textBlue="13h30"/>
+          <CardPlanningButton />
+          <CardPlanningButton />
         </div>
       </div>
     </div>
