@@ -1,11 +1,15 @@
 import React from 'react'
 import { useRouter } from 'next/router'
-
+import Back from './index'
 export default function Alert() {
 
-  const router = useRouter()
+    const router = useRouter()
 
-  return (
-    <h1>test {router.query.slug}</h1>
-  )
+    return (
+        <>
+
+            <Back/>
+
+        </>
+    )
 }
