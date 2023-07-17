@@ -93,11 +93,11 @@ export default function Planning() {
           <div className={styles.ContentPlanningFistRow}>
             <CardPlanning textBlack="" textBlue="" />
           </div>
-          <div>
+          <div className={styles.ContentHours}>
             <CardPlanning textBlack="Début :" textBlue="9h"/>
             <CardPlanning textBlack="Fin :" textBlue="12h30"/>
           </div>
-          <div>
+          <div className={styles.ContentHours}>
             <CardPlanning textBlack="Début :" textBlue="13h30"/>
             <CardPlanning textBlack="Fin :" textBlue="17h"/>
           </div>
