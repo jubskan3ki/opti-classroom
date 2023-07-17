@@ -7,7 +7,7 @@ interface ButtonProps {
   text: string;
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
   variant?: string;
-  icon: IconDefinition;
+  icon?: IconDefinition;
 }
 
 const Button = ({ text, onClick, variant, icon }: ButtonProps) => {
