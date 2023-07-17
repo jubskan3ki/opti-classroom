@@ -1,9 +1,10 @@
 .containerModal{
     display: grid;
     grid-template-columns: 1fr 1fr;
+    gap: 20px;
 }
 
-.CardLeft, .CardRight{
+.CardLeft, .CardRight, .CardLeft2{
     border-radius: 10px;
     border: 1 #FFF;
     padding: 40px;
@@ -13,6 +14,7 @@
     border-radius: 10px;
     background: var(--blue-25, rgba(65, 133, 150, 0.25));
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    max-width: 400px;
 }
 
 .Title {
@@ -33,6 +35,42 @@
 }
 
 .InputDiv{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.ScrollContent{
+    overflow: auto;
+    flex-direction: column;
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+}
+
+.CardLeft{
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 5px 0px rgb(0 0 0 / 25%);
+    background-color: #EBEBEB;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.CardLeft2{
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 5px 0px rgb(0 0 0 / 25%);
+    background-color: #EBEBEB;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.LeftSide{
     display: flex;
     flex-direction: column;
     gap: 20px;
