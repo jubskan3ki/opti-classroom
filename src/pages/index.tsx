@@ -6,16 +6,18 @@ import CardLoginLeft from '../Asset/png/CardLoginLeft.svg';
 import CardLoginRight from '../Asset/png/CardLoginRight.svg'
 import Button from '../../components/Button/Button'
 import Input from '../../components/Input/Input'
-import { Switch } from '@nextui-org/react';
 import Modal from '../../components/Modal/Modal';
 import ModalGestion from '../../components/ModalGestion/ModalGestion';
+import Switch from '../../components/Switch/Switch';
 
 export default function Home() {
     const [isChecked, setIsChecked] = useState(false);
+    const [isCheckedSwitch, setIsCheckedSwitch] = useState(false);
 
-    const handleSwitchChange = () => {
-        setIsChecked(!isChecked);
-    };
+  const handleSwitchChange = (checked) => {
+    setIsChecked(checked);
+  };
+
     const [modalOpen, setModalOpen] = useState(false);
 
     const openModal = () => {
@@ -35,13 +37,14 @@ export default function Home() {
                     <div className={styles.InputDiv}>
                         <Input placeholder="Entrez votre nom" />
                         <Input placeholder="Adresse email" />
-                    </div>
-                    <div className={styles.ContainerSwitch}>
-                        <Switch className={styles.Switch}/>
+                        <div className={styles.ContainerSwitch}>
+                    <Switch id="Switch" isChecked={isChecked} onChange={handleSwitchChange} />
                         <span>Rester connecter ?</span>
                     </div>
                     <Button text="CONTINUE" />
                     </div>
+                    </div>
+                    
                 </div>
             <div className={styles.ContentRight}>
                 <div className={styles.CardRight}>
