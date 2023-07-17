@@ -46,9 +46,9 @@ export default function Home() {
             <div className={styles.ContentRight}>
                 <div className={styles.CardRight}>
                     <h1 className={styles.Title}>S’inscrire</h1>
-                          <div className={styles.Img}>
-                            <Image  src={CardLoginRight} alt='CardLoginLeft'/>
-                          </div>
+                         
+                            <Image className={styles.LoginImg}  src={CardLoginRight} alt='CardLoginLeft'/>
+                          
                           <div className={styles.InputDiv}>
                             <Input placeholder="Entrez votre nom" />
                             <Input placeholder="Entrez votre prénom" />
