@@ -118,61 +118,52 @@ export default function Planning() {
           <div className={styles.ContentPlanningFistRow}>
             <CardPlanning textBlack="Lundi" textBlue="17" />
           </div>
-          <CardPlanningButton onClick={openModal}/>
-          <CardPlanningButton onClick={openModal}/>
+          <CardPlanningButton />
+          <CardPlanningButton />
         </div>
         <div className={styles.Content}>
           <div className={styles.ContentPlanningFistRow}>
             <CardPlanning textBlack="Mardi" textBlue="18" />
           </div>
-          <CardPlanningButton onClick={openModal}/>
-          <CardPlanningButton onClick={openModal}/>
+          <CardPlanningButton />
+          <CardPlanningButton />
         </div>
         <div className={styles.Content}>
           <div className={styles.ContentPlanningFistRow}>
             <CardPlanning textBlack="Mercredi" textBlue="19" />
           </div>
-          <CardPlanningButton onClick={openModal}/>
-          <CardPlanningButton onClick={openModal}/>
+          <CardPlanningButton />
+          <CardPlanningButton />
         </div>
         <div className={styles.Content}>
           <div className={styles.ContentPlanningFistRow}>
             <CardPlanning textBlack="Jeudi" textBlue="20" />
           </div>
-          <CardPlanningButton onClick={openModal}/>
-          <CardPlanningButton onClick={openModal}/>
+          <CardPlanningButton />
+          <CardPlanningButton />
         </div>
         <div className={styles.Content}>
           <div className={styles.ContentPlanningFistRow}>
             <CardPlanning textBlack="Vendredi" textBlue="21" />
           </div>
-          <CardPlanningButton onClick={openModal}/>
-          <CardPlanningButton onClick={openModal}/>
+          <CardPlanningButton />
+          <CardPlanningButton />
         </div>
         <div className={styles.Content}>
           <div className={styles.ContentPlanningFistRow}>
             <CardPlanning textBlack="Samedi" textBlue="22" />
           </div>
-          <CardPlanningButton onClick={openModal}/>
-          <CardPlanningButton onClick={openModal}/>
+          <CardPlanningButton />
+          <CardPlanningButton />
         </div>
         <div className={styles.Content}>
           <div className={styles.ContentPlanningFistRow}>
             <CardPlanning textBlack="Dimanche" textBlue="23" />
           </div>
-          <CardPlanningButton onClick={openModal}/>
-          <CardPlanningButton onClick={openModal}/>
+          <CardPlanningButton />
+          <CardPlanningButton />
         </div>
       </div>
-      <Modal isOpen={modalOpen} onClose={closeModal}>
-        <div><div className={styles.LeftSide}>
-          test
-        </div>
-        <div className={styles.RightSide}>
-          test2
-        </div></div>
-        
-      </Modal>
     </div>
   )
 }

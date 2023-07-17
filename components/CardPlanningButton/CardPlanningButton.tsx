@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGear } from '@fortawesome/free-solid-svg-icons';
 
 interface CardPlanningButtonProps {
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 const CardPlanningButton: React.FC<CardPlanningButtonProps> = ({ onClick }) => {
