@@ -8,6 +8,7 @@ import Button from '../../components/Button/Button'
 import Input from '../../components/Input/Input'
 import { Switch } from '@nextui-org/react';
 import Modal from '../../components/Modal/Modal';
+import ModalGestion from '../../components/ModalGestion/ModalGestion';
 
 export default function Home() {
     const [isChecked, setIsChecked] = useState(false);
@@ -54,11 +55,8 @@ export default function Home() {
                           <Input placeholder="Entrez votre adresse email" />
                           <Input placeholder="Entrez votre mot de passe" />
                           <Button text="CONTINUE" onClick={openModal}/>
-                  </div>
-            </div>
-                <Modal isOpen={modalOpen} onClose={closeModal}>
-                    <h2>test modal</h2>
-                </Modal>
+                    </div>
+                </div>
             </div>
         </main>
     )

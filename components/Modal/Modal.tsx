@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+import styles from './Modal.module.css'
 
 interface ModalProps {
   isOpen: boolean;
@@ -13,8 +14,8 @@ const Modal = ({ isOpen, onClose, children }: ModalProps) => {
 
   return (
     <div>
-      <div>
-        <button onClick={onClose}>&times;</button>
+      <div className={styles.Modal}>
+        <button className={styles.ButtonClose} onClick={onClose}>test</button>
         {children}
       </div>
     </div>

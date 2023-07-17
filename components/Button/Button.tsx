@@ -3,7 +3,7 @@ import styles from './Button.module.css';
 
 interface ButtonProps {
   text: string;
-  onClick: (event: MouseEvent<HTMLButtonElement>) => void;
+  onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
   variant?: string;
 }
 
