@@ -1,19 +1,20 @@
 .Content{
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     justify-content: space-around;
     height: 100%;
     width: 100%;
+    align-items: center;
+    justify-items: center;
+    gap: 2.5vw;
 }
 
 .ContentLeft{
     height: 100%;
-    
-    
 }
 
 .ContentRight{
     height: 100%;
-    
 }
 
 .CardLeft, .CardRight{
@@ -24,7 +25,6 @@
     display: flex;
     flex-direction: column;
     height: 100%;
-    max-width: 450px;
 }
 
 .Title {
@@ -32,11 +32,8 @@
     text-align: center;
 }
 
-.Img{
-    padding-top: 50px;
-    padding-bottom: 30px;
-    display: flex;
-    height: auto;
+.LoginImg{
+    
 }
 
 .Switch {
@@ -48,6 +45,12 @@
     display: flex; 
     margin-bottom: 20px;
     align-items: center;
+    gap: 20px;
+}
+
+.InputDiv{
+    display: flex;
+    flex-direction: column;
     gap: 20px;
 }
 

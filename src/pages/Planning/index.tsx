@@ -4,10 +4,21 @@ import Button from '../../../components/Button/Button';
 import styles from './Planning.module.css'
 import CardPlanning from '../../../components/CardPlanning/CardPlanning';
 import CardPlanningButton from '../../../components/CardPlanningButton/CardPlanningButton';
+import Modal from '../../../components/Modal/Modal';
+
 
 export default function Planning() {
 
   const [selectedValue, setSelectedValue] = useState('');
+  const [modalOpen, setModalOpen] = useState(false);
+
+    const openModal = () => {
+        setModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setModalOpen(false);
+    };
   const handleSelectChange = (id: string) => {
     setSelectedValue(id);
   };
@@ -91,52 +102,61 @@ export default function Planning() {
           <div className={styles.ContentPlanningFistRow}>
             <CardPlanning textBlack="Lundi" textBlue="17" />
           </div>
-          <CardPlanningButton />
-          <CardPlanningButton />
+          <CardPlanningButton onClick={openModal}/>
+          <CardPlanningButton onClick={openModal}/>
         </div>
         <div className={styles.Content}>
           <div className={styles.ContentPlanningFistRow}>
             <CardPlanning textBlack="Mardi" textBlue="18" />
           </div>
-          <CardPlanningButton />
-          <CardPlanningButton />
+          <CardPlanningButton onClick={openModal}/>
+          <CardPlanningButton onClick={openModal}/>
         </div>
         <div className={styles.Content}>
           <div className={styles.ContentPlanningFistRow}>
             <CardPlanning textBlack="Mercredi" textBlue="19" />
           </div>
-          <CardPlanningButton />
-          <CardPlanningButton />
+          <CardPlanningButton onClick={openModal}/>
+          <CardPlanningButton onClick={openModal}/>
         </div>
         <div className={styles.Content}>
           <div className={styles.ContentPlanningFistRow}>
             <CardPlanning textBlack="Jeudi" textBlue="20" />
           </div>
-          <CardPlanningButton />
-          <CardPlanningButton />
+          <CardPlanningButton onClick={openModal}/>
+          <CardPlanningButton onClick={openModal}/>
         </div>
         <div className={styles.Content}>
           <div className={styles.ContentPlanningFistRow}>
             <CardPlanning textBlack="Vendredi" textBlue="21" />
           </div>
-          <CardPlanningButton />
-          <CardPlanningButton />
+          <CardPlanningButton onClick={openModal}/>
+          <CardPlanningButton onClick={openModal}/>
         </div>
         <div className={styles.Content}>
           <div className={styles.ContentPlanningFistRow}>
             <CardPlanning textBlack="Samedi" textBlue="22" />
           </div>
-          <CardPlanningButton />
-          <CardPlanningButton />
+          <CardPlanningButton onClick={openModal}/>
+          <CardPlanningButton onClick={openModal}/>
         </div>
         <div className={styles.Content}>
           <div className={styles.ContentPlanningFistRow}>
             <CardPlanning textBlack="Dimanche" textBlue="23" />
           </div>
-          <CardPlanningButton />
-          <CardPlanningButton />
+          <CardPlanningButton onClick={openModal}/>
+          <CardPlanningButton onClick={openModal}/>
         </div>
       </div>
+      <Modal isOpen={modalOpen} onClose={closeModal}>
+        <div><div className={styles.LeftSide}>
+          test
+        </div>
+        <div className={styles.RightSide}>
+          test2
+        </div></div>
+        
+      </Modal>
     </div>
   )
 }
