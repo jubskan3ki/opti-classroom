@@ -72,7 +72,7 @@ export default function Planning() {
   }
   ]);
   return (
-    <div>
+    <div className={styles.Container}>
       <div className={styles.ContentHigh}>
         <Select 
           id="01" 
@@ -93,10 +93,15 @@ export default function Planning() {
           <div className={styles.ContentPlanningFistRow}>
             <CardPlanning textBlack="" textBlue="" />
           </div>
-          <CardPlanning textBlack="Début :" textBlue="9h"/>
-          <CardPlanning textBlack="Fin :" textBlue="12h30"/>
-          <CardPlanning textBlack="Début :" textBlue="13h30"/>
-          <CardPlanning textBlack="Fin :" textBlue="17h"/>
+          <div>
+            <CardPlanning textBlack="Début :" textBlue="9h"/>
+            <CardPlanning textBlack="Fin :" textBlue="12h30"/>
+          </div>
+          <div>
+            <CardPlanning textBlack="Début :" textBlue="13h30"/>
+            <CardPlanning textBlack="Fin :" textBlue="17h"/>
+          </div>
+          
         </div>
         <div className={styles.Content}>
           <div className={styles.ContentPlanningFistRow}>
