@@ -138,82 +138,83 @@ export default function Home() {
 
     return (
         <div className={styles.Content}>
-            <div className={styles.ContentLeft}>
-                <div className={styles.CardProfil}>
-                    <Image src={Back} alt="Back"/>
-                    <div className={styles.CardProfilContent}>
-                        <div>
-                            <h1>Bonjour , </h1>
-                            <h2>Bienvenu sur Opti-ClassRoom [Nom]</h2>
-                        </div>
-                        <div className={styles.CardProfillLegend}>
+            <div className={styles.Content}>
+                <div className={styles.ContentLeft}>
+                    <div className={styles.CardProfil}>
+                        <Image src={Back} alt="Back"/>
+                        <div className={styles.CardProfilContent}>
                             <div>
-                                <h4>{formattedDate}</h4>
-                                <h4><FontAwesomeIcon icon={faTemperatureQuarter} /> 15 C</h4>
+                                <h1>Bonjour , </h1>
+                                <h2>Bienvenu sur Opti-ClassRoom [Nom]</h2>
+                            </div>
+                            <div className={styles.CardProfillLegend}>
+                                <div>
+                                    <h4>{formattedDate}</h4>
+                                    <h4><FontAwesomeIcon icon={faTemperatureQuarter} /> 15 C</h4>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div className={styles.DivRoom}>
-                <div className={styles.SelectRoom}>
-                    <Select 
-                        id="01" 
-                        options={selectRoom} 
-                        selectedValue={selectedRoom.value}
-                        onChange={handleSelectChange}    
-                    />
-                    <div className={styles.SelectStat} >
-                        <FontAwesomeIcon icon={faDroplet} />
-                        <p>{selectedRoom.water}</p>
+                    <div className={styles.DivRoom}>
+                    <div className={styles.SelectRoom}>
+                        <Select 
+                            id="01" 
+                            options={selectRoom} 
+                            selectedValue={selectedRoom.value}
+                            onChange={handleSelectChange}    
+                        />
+                        <div className={styles.SelectStat} >
+                            <FontAwesomeIcon icon={faDroplet} />
+                            <p>{selectedRoom.water}</p>
+                        </div>
+                        <div className={styles.SelectStat}>
+                            <FontAwesomeIcon icon={faSun} />
+                            <p>{selectedRoom.light}</p>
+                        </div>
                     </div>
-                    <div className={styles.SelectStat}>
-                        <FontAwesomeIcon icon={faSun} />
-                        <p>{selectedRoom.light}</p>
+                        <div className={styles.DivRoomLeft}>
+                            {switches.map(switchItem => (
+                                <CardSwitch
+                                    key={switchItem.id}
+                                    Etat={switchItem.Etat}
+                                    handlesetEtat={() => handleSwitchChange(switchItem.id)}
+                                    icon={switchItem.icon}
+                                    Name={switchItem.Name}
+                                    id={switchItem.id}
+                                />
+                            ))}
+                        </div>
+                        <div className={styles.Card}></div>
+                    </div>
+                    <div className={styles.DivRoomBottom}>
+                        <div className={styles.Card}>
+
+                        </div>
+                        <div className={styles.Card}>
+                        
+                        </div>
                     </div>
                 </div>
-                    <div className={styles.DivRoomLeft}>
-                        {switches.map(switchItem => (
-                            <CardSwitch
-                                key={switchItem.id}
-                                Etat={switchItem.Etat}
-                                handlesetEtat={() => handleSwitchChange(switchItem.id)}
-                                icon={switchItem.icon}
-                                Name={switchItem.Name}
-                                id={switchItem.id}
+                <div className={styles.ContentRight}>
+
+                    <h2> Les Alerts </h2>
+                    
+                    <div className={styles.DivAlert}>
+
+                        {Alerts.map(AlertItem => (
+                            <CardAlert 
+                                key={AlertItem.id}
+                                Room={AlertItem.Room}
+                                Type={AlertItem.Type}
+                                Resum={AlertItem.Resum}
+                                id={AlertItem.id}
                             />
                         ))}
-                    </div>
-                    <div className={styles.Card}></div>
-                </div>
-                <div className={styles.DivRoomBottom}>
-                    <div className={styles.Card}>
 
                     </div>
-                    <div className={styles.Card}>
-                    
-                    </div>
+
                 </div>
             </div>
-            <div className={styles.ContentRight}>
-
-                <h2> Les Alerts </h2>
-                
-                <div className={styles.DivAlert}>
-
-                    {Alerts.map(AlertItem => (
-                        <CardAlert 
-                            key={AlertItem.id}
-                            Room={AlertItem.Room}
-                            Type={AlertItem.Type}
-                            Resum={AlertItem.Resum}
-                            id={AlertItem.id}
-                        />
-                    ))}
-
-                </div>
-
-            </div>
-            
         </div>
     );
 }
