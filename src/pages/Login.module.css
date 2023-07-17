@@ -7,21 +7,28 @@
     justify-items: center;
     grid-gap: 2.5vw;
     grid-gap: 2.5vw;
+    grid-gap: 2.5vw;
     gap: 2.5vw;
     overflow: auto;
+    align-items: center;
 }
 
 .CardLeft, .CardRight{
     border-radius: 10px;
-    background: #d4e0e4;
     border: 1 #FFF;
     padding: 40px;
     display: flex;
     flex-direction: column;
     margin: auto;
-    height: 100%;
 }
 
+.CardRight{
+    background: white;
+}
+
+.CardLeft{
+    background: var(--blue-25, rgba(65, 133, 150, 0.25));
+}
 .Title {
     width: 100%;
     text-align: center;

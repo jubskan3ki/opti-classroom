@@ -4,14 +4,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import Switch from '../Switch/Switch';
 interface CardSwitchProps {
-  Etat: boolean;
-  handlesetEtat: () => void;
-  icon: IconDefinition;
-  Name: string;
-  id: string;
+	Etat: boolean;
+	handlesetEtat: () => void;
+	icon: IconDefinition;
+	Name: string;
+	id: string;
 }
 
 export default function CardSwitch(props: CardSwitchProps) {
+
 	const { Etat, handlesetEtat, icon, Name, id } = props;
 
 	return (
