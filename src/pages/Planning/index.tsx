@@ -7,6 +7,7 @@ import CardPlanningButton from '../../../components/CardPlanningButton/CardPlann
 import Modal from '../../../components/Modal/Modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGear } from '@fortawesome/free-solid-svg-icons';
+import Link from '../../../components/Link/Link';
 
 
 export default function Planning() {
@@ -88,7 +89,13 @@ export default function Planning() {
           selectedValue={selectedValue}
           onChange={handleSelectChange}    
         />
-        <Button text='Setting Room' variant='primary' icon={faGear}></Button>
+        <div className={styles.ButtonLink}>
+          <Link href='/Room/${test}'>
+            <Button text='Setting Room' variant='primary' icon={faGear}></Button>
+          </Link>
+        </div>
+        
+        
       </div>
       <div className={styles.ContentPlanning}>
         <div className={styles.Content}>
