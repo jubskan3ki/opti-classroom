@@ -12,6 +12,8 @@ import Link from '../../../components/Link/Link';
 
 export default function Planning() {
 
+  const test = 'Salon';
+
   const [selectedValue, setSelectedValue] = useState('');
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -90,7 +92,7 @@ export default function Planning() {
           onChange={handleSelectChange}    
         />
         <div className={styles.ButtonLink}>
-          <Link href='/Planning/Room/${test}'>
+          <Link href={`/Planning/Room/${test}`}>
             <Button text='Setting Room' variant='primary' icon={faGear}></Button>
           </Link>
         </div>
