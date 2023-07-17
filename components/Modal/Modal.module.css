@@ -1,7 +1,33 @@
 .Modal{
     position: absolute;
     top: 50%;
+    display: flex;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: white;
+    height: 100vh;
+    width: 100vw;
+    z-index: 100;
+    backdrop-filter: blur(5px);
+    align-items: center;
+    background: rgba(65, 133, 150, 0.25);
+    justify-content: center; 
+}
+
+.ModalContente{
+    position: relative;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.25);
+}
+
+.ModalContente a{
+    position: absolute;
+    top: -15px;
+    right: -15px;
+}
+
+.ModalContente svg{
+    height: 30px;
+    color: #418596;
 }

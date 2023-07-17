@@ -137,7 +137,7 @@ export default function Home() {
     };
 
     return (
-        <div className={styles.Content}>
+        <div className={styles.overFlow}>
             <div className={styles.Content}>
                 <div className={styles.ContentLeft}>
                     <div className={styles.CardProfil}>

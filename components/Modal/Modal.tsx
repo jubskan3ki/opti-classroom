@@ -1,26 +1,27 @@
 import React, { ReactNode } from 'react';
-import styles from './Modal.module.css'
+import styles from './Modal.module.css';
+import Link from 'next/link';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSquareXmark } from '@fortawesome/free-solid-svg-icons';
 
 interface ModalProps {
-  isOpen: boolean;
-  onClose: () => void;
   children: ReactNode;
+  ToBack: string;
 }
 
-const Modal = ({ isOpen, onClose, children }: ModalProps) => {
-  if (!isOpen) {
-    return null;
-  }
-
+const Modal = ({ children, ToBack }: ModalProps) => {
   return (
     <div>
       <div className={styles.Modal}>
-        <button className={styles.ButtonClose} onClick={onClose}>test</button>
-        {children}
+        <div className={styles.ModalContente}>
+          <Link href={ToBack || ''}>
+              <FontAwesomeIcon icon={faSquareXmark} />
+          </Link>
+          {children}
+        </div>
       </div>
     </div>
   );
 };
 
-export default Modal;
-
+export default Modal; 
