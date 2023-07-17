@@ -90,7 +90,7 @@ export default function Planning() {
           onChange={handleSelectChange}    
         />
         <div className={styles.ButtonLink}>
-          <Link href='/Room/${test}'>
+          <Link href='/Planning/Room/${test}'>
             <Button text='Setting Room' variant='primary' icon={faGear}></Button>
           </Link>
         </div>
