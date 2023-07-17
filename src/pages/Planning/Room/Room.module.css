@@ -7,7 +7,7 @@
 .CardLeft, .CardRight, .CardLeft2{
     border-radius: 10px;
     border: 1 #FFF;
-    padding: 40px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     height: 100%;
