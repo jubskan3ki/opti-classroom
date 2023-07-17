@@ -5,6 +5,8 @@ import styles from './Planning.module.css'
 import CardPlanning from '../../../components/CardPlanning/CardPlanning';
 import CardPlanningButton from '../../../components/CardPlanningButton/CardPlanningButton';
 import Modal from '../../../components/Modal/Modal';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGear } from '@fortawesome/free-solid-svg-icons';
 
 
 export default function Planning() {
@@ -86,7 +88,7 @@ export default function Planning() {
           selectedValue={selectedValue}
           onChange={handleSelectChange}    
         />
-        <Button text='Setting Room' variant='primary'/>
+        <Button text='Setting Room' variant='primary' icon={faGear}></Button>
       </div>
       <div className={styles.ContentPlanning}>
         <div className={styles.Content}>
