@@ -72,7 +72,7 @@ export default function Planning() {
   }
   ]);
   return (
-    <div>
+    <div className={styles.Container}>
       <div className={styles.ContentHigh}>
         <Select 
           id="01" 
