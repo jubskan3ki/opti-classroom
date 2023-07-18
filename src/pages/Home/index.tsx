@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './Home.module.css';
 import Image from 'next/image'
-import { faHouse, faClipboardList, faCalendarDays, faGear, faArrowRightToBracket, faBolt , faDroplet , faSun , faTemperatureQuarter} from '@fortawesome/free-solid-svg-icons';
+import { faBolt , faDroplet , faSun , faTemperatureQuarter} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import CardSwitch from '../../../components/CardSwitch/CardSwitch';
 import CardAlert from '../../../components/CardAlert/CardAlert';

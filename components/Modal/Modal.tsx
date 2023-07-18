@@ -15,7 +15,7 @@ const Modal = ({ children, ToBack }: ModalProps) => {
       <div className={styles.Modal}>
         <div className={styles.ModalContente}>
           <div className={styles.ModalOverFlow} >
-            <Link href={ToBack || ''}>
+            <Link className={styles.iconBack} href={ToBack || ''}>
                 <FontAwesomeIcon icon={faSquareXmark} />
             </Link>
             {children}
