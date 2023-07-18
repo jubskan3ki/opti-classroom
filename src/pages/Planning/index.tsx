@@ -8,6 +8,7 @@ import Modal from '../../../components/Modal/Modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGear } from '@fortawesome/free-solid-svg-icons';
 import Link from '../../../components/Link/Link';
+import Title from '../../../components/Title/Title';
 
 
 export default function Planning() {
@@ -78,6 +79,7 @@ export default function Planning() {
   ]);
   return (
     <div className={styles.Container}>
+      <Title text='Planning'/>
       <div className={styles.ContentHigh}>
         <Select 
           id="01" 

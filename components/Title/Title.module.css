@@ -1,0 +1,21 @@
+.ContainerTitle{
+    margin-bottom: 20px;
+}
+
+.Title{
+    background: linear-gradient(45deg, #316572 0%, #62AABC 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 46.8px;
+}
+
+.Bottom{
+    background: linear-gradient(45deg, #316572 0%, #62AABC 100%);
+    width: 500px;
+    height: 5px;
+    border-radius: 3px;
+}
