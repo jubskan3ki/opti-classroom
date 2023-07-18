@@ -118,7 +118,10 @@ export default function Planning() {
           <div className={styles.ContentPlanningFistRow}>
             <CardPlanning textBlack="Lundi" textBlue="17" />
           </div>
-          <CardPlanningButton />
+          <Link href={`/Planning/Event/${test}`}>
+            <CardPlanningButton />
+          </Link>
+          
           <CardPlanningButton />
         </div>
         <div className={styles.Content}>
