@@ -3,12 +3,12 @@ import style from './Setting.module.css'
 import Image from 'next/image';
 import SettingImg from '../../Asset/svg/Setting.svg';
 import Input from '../../../components/Input/Input'
-import { Switch } from '@nextui-org/react';
 import Button from '../../../components/Button/Button'
 import Avatar from '../../Asset/svg/Avatar.svg';
 import backSetting from '../../Asset/svg/backSetting.svg';
 
 export default function Setting() {
+
 	return (
 		<div className={style.SettingContent}>
 			<div className={style.SettingCard}>
@@ -21,10 +21,6 @@ export default function Setting() {
 					<Input placeholder="Adresse email" />
 					<Input placeholder="Mots de passe" />
 					<Input placeholder="Confirme ton mots de passe" />
-					<div>
-						<Switch />
-						<span>Rester connecter ?</span>
-					</div>
 					<Button text="Mettre a Jour" />
 					<Button text="Supprime" />
 				</div>
