@@ -1,28 +1,40 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'; 
 import styles from './Login.module.css';
 import Image from 'next/image';
-import CardLoginLeft from '../Asset/png/CardLoginLeft.svg';
-import CardLoginRight from '../Asset/png/CardLoginRight.svg';
 import Button from '../../components/Button/Button';
 import Input from '../../components/Input/Input';
 import Switch from '../../components/Switch/Switch';
+import CardLoginLeft from '../Asset/png/CardLoginLeft.svg';
+import CardLoginRight from '../Asset/png/CardLoginRight.svg';
 
 export default function Home() {
   const [isChecked, setIsChecked] = useState(false);
-  const [isCheckedSwitch, setIsCheckedSwitch] = useState(false);
 
-  const handleSwitchChange = (checked: boolean) => {
-    setIsChecked(checked);
-  };
+  // Informations pour la connexion et l'inscription
+  const [userInfo, setUserInfo] = useState({
+    loginName: '',
+    loginEmail: '',
+    signupName: '',
+    signupFirstname: '',
+    signupEmail: '',
+    signupPassword: '',
+  });
 
-  const [modalOpen, setModalOpen] = useState(false);
-
-  const openModal = () => {
-    setModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setModalOpen(false);
+  const handleSubmit = (type: 'login' | 'signup') => {
+    if (type === 'login') {
+      console.log('Informations de connexion:', {
+        name: userInfo.loginName,
+        email: userInfo.loginEmail,
+        stayConnected: isChecked
+      });
+    } else if (type === 'signup') {
+      console.log('Informations d’inscription:', {
+        name: userInfo.signupName,
+        firstname: userInfo.signupFirstname,
+        email: userInfo.signupEmail,
+        password: userInfo.signupPassword
+      });
+    }
   };
 
   return (
@@ -32,26 +44,48 @@ export default function Home() {
           <h1 className={styles.Title}>Se connecter</h1>
           <Image className={styles.LoginImg} src={CardLoginLeft} alt='CardLoginLeft' />
           <div className={styles.InputDiv}>
-            <Input placeholder="Entrez votre nom" />
-            <Input placeholder="Adresse email" />
-            <div className={styles.ContainerSwitch}>
-              <Switch id="Switch" isChecked={isChecked} onChange={handleSwitchChange} />
-              <span>Rester connecter ?</span>
-            </div>
-            <Button text="CONTINUE" />
+            <Input 
+              placeholder="Entrez votre nom" 
+              value={userInfo.loginName}
+              onChange={(e) => setUserInfo(prev => ({ ...prev, loginName: e.target.value }))}
+            />
+            <Input 
+              placeholder="Adresse email" 
+              value={userInfo.loginEmail}
+              onChange={(e) => setUserInfo(prev => ({ ...prev, loginEmail: e.target.value }))}
+            />
+            <Switch id="Switch" isChecked={isChecked} onChange={(checked) => setIsChecked(checked)} />
+            <Button text="CONTINUE" onClick={() => handleSubmit('login')} />
           </div>
         </div>
       </div>
+
       <div className={styles.ContentRight}>
         <div className={styles.CardRight}>
           <h1 className={styles.Title}>S’inscrire</h1>
-          <Image className={styles.LoginImg} src={CardLoginRight} alt='CardLoginLeft' />
+          <Image className={styles.LoginImg} src={CardLoginRight} alt='CardLoginRight' />
           <div className={styles.InputDiv}>
-            <Input placeholder="Entrez votre nom" />
-            <Input placeholder="Entrez votre prénom" />
-            <Input placeholder="Entrez votre adresse email" />
-            <Input placeholder="Entrez votre mot de passe" />
-            <Button text="CONTINUE" />
+            <Input 
+              placeholder="Entrez votre nom" 
+              value={userInfo.signupName}
+              onChange={(e) => setUserInfo(prev => ({ ...prev, signupName: e.target.value }))}
+            />
+            <Input 
+              placeholder="Entrez votre prénom" 
+              value={userInfo.signupFirstname}
+              onChange={(e) => setUserInfo(prev => ({ ...prev, signupFirstname: e.target.value }))}
+            />
+            <Input 
+              placeholder="Entrez votre adresse email" 
+              value={userInfo.signupEmail}
+              onChange={(e) => setUserInfo(prev => ({ ...prev, signupEmail: e.target.value }))}
+            />
+            <Input 
+              placeholder="Entrez votre mot de passe" 
+              value={userInfo.signupPassword}
+              onChange={(e) => setUserInfo(prev => ({ ...prev, signupPassword: e.target.value }))}
+            />
+            <Button text="CONTINUE" onClick={() => handleSubmit('signup')} />
           </div>
         </div>
       </div>

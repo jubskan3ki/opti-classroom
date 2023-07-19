@@ -9,115 +9,47 @@ import Select from '../../../components/Select/Select';
 import Back from '../../Asset/svg/backNight.svg';
 import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
+import axios from 'axios';
 
-export default function Home() {
+interface Switch {
+    Etat: boolean;
+    icon: any; // Utilisez le type approprié ici pour faBolt et autres icônes
+    Name: string;
+    id: string;
+}
 
-    const currentDate = new Date();
-    const formattedDate = format(currentDate, 'd MMMM yyyy', { locale: fr });
+interface Alert {
+    Room: string;
+    Type: string;
+    Resum: string;
+    id: string;
+}
 
-    const [switches, setSwitches] = useState([
-        {
-            Etat: true,
-            icon: faBolt,
-            Name: 'Name1',
-            id: 'id1'
-        },
-        {
-            Etat: true,
-            icon: faBolt,
-            Name: 'Name2',
-            id: 'id2'
-        },
-        {
-            Etat: true,
-            icon: faBolt,
-            Name: 'Name3',
-            id: 'id3'
-        },
-        {
-            Etat: true,
-            icon: faBolt,
-            Name: 'Name4',
-            id: 'id4'
-        }
-    ]);
+interface Room {
+    value: string;
+    label: string;
+    id: string;
+    light: string;
+    water: string;
+}
 
-    const [Alerts, setAlerts] = useState([
-        {
-            Room: '001',
-            Type: 'Securite' ,
-            Resum: 'Name1',
-            id: 'id1'
-        },
-        {
-            Room: '001',
-            Type: 'Securite',
-            Resum: 'Name2',
-            id: 'id2'
-        },
-        {
-            Room: '001',
-            Type: 'Securite',
-            Resum: 'Name3',
-            id: 'id3'
-        },
-        {
-            Room: '001',
-            Type: 'Securite',
-            Resum: 'Name4',
-            id: 'id4'
-        },
-        {
-            Room: '001',
-            Type: 'Securite',
-            Resum: 'Name5',
-            id: 'id5'
-        },
-        {
-            Room: '001',
-            Type: 'Securite',
-            Resum: 'Name6',
-            id: 'id6'
-        }
-    ]);
+interface HomeProps {
+    initialSwitches: Switch[];
+    initialAlerts: Alert[];
+    initialRooms: Room[];
+    temperature: number; // Utilisez le type approprié ici
+}
 
-    const [selectRoom, setSelectselectRoom] = useState([
-        {
-            value: 'Name1',
-            label: 'Name1',
-            id: 'id1',
-            light : '25',
-            water : '55'
-            
-        },
-        {
-            value: 'Name2',
-            label: 'Name2',
-            id: 'id2',
-            light : '65',
-            water : '55'
-        },
-        {
-            value: 'Name3',
-            label: 'Name3',
-            id: 'id3',
-            light : '35',
-            water : '55'
-        },
-        {
-            value: 'Name4',
-            label: 'Name4',
-            id: 'id4',
-            light : '15',
-            water : '55'
-        }
-    ]);
-
-    const [selectedRoom, setSelectedRoom] = useState(selectRoom[0]);
+export default function Home({ initialSwitches, initialAlerts, initialRooms, temperature }: HomeProps) {
+    
+    const [switches, setSwitches] = useState<Switch[]>(initialSwitches);
+    const [Alerts, setAlerts] = useState<Alert[]>(initialAlerts);
+    const [selectRoom, setSelectRoom] = useState<Room[]>(initialRooms);
+    const [selectedRoom, setSelectedRoom] = useState<Room | null>(initialRooms[0]);
 
     const handleSwitchChange = (id: string) => {
-        setSwitches(prevSwitches => {
-            return prevSwitches.map(switchItem => {
+        setSwitches((prevSwitches: Switch[]) => {
+            return prevSwitches.map((switchItem: Switch) => {
                 if (switchItem.id === id) {
                     return {
                         ...switchItem,
@@ -130,11 +62,14 @@ export default function Home() {
     };
 
     const handleSelectChange = (selectedValue: string) => {
-        const room = selectRoom.find(room => room.value === selectedValue);
+        const room = selectRoom.find((room: Room) => room.value === selectedValue);
         if (room) {
             setSelectedRoom(room);
         }
     };
+
+    const currentDate = new Date();
+    const formattedDate = format(currentDate, 'd MMMM yyyy', { locale: fr });
 
     return (
         <div className={styles.Content}>
@@ -149,27 +84,31 @@ export default function Home() {
                         <div className={styles.CardProfillLegend}>
                             <div>
                                 <h4>{formattedDate}</h4>
-                                <h4><FontAwesomeIcon icon={faTemperatureQuarter} /> 15 C</h4>
+                                <h4><FontAwesomeIcon icon={faTemperatureQuarter} /> {temperature} C</h4>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className={styles.DivRoom}>
                 <div className={styles.SelectRoom}>
-                    <Select 
-                        id="01" 
-                        options={selectRoom} 
-                        selectedValue={selectedRoom.value}
-                        onChange={handleSelectChange}    
-                    />
-                    <div className={styles.SelectStat} >
-                        <FontAwesomeIcon icon={faDroplet} />
-                        <p>{selectedRoom.water}</p>
-                    </div>
-                    <div className={styles.SelectStat}>
-                        <FontAwesomeIcon icon={faSun} />
-                        <p>{selectedRoom.light}</p>
-                    </div>
+                {selectedRoom && (
+                    <>
+                        <Select 
+                            id="01" 
+                            options={selectRoom} 
+                            selectedValue={selectedRoom.value}
+                            onChange={handleSelectChange}    
+                        />
+                        <div className={styles.SelectStat} >
+                            <FontAwesomeIcon icon={faDroplet} />
+                            <p>{selectedRoom.water}</p>
+                        </div>
+                        <div className={styles.SelectStat}>
+                            <FontAwesomeIcon icon={faSun} />
+                            <p>{selectedRoom.light}</p>
+                        </div>
+                    </>
+                )}
                 </div>
                     <div className={styles.DivRoomLeft}>
                         {switches.map(switchItem => (
@@ -218,4 +157,117 @@ export default function Home() {
             
         </div>
     );
+}
+
+export async function getServerSideProps() {
+    
+    const initialSwitches : Switch[] = [
+        {
+            Etat: true,
+            icon: faBolt,
+            Name: 'Name1',
+            id: 'id1'
+        },
+        {
+            Etat: true,
+            icon: faBolt,
+            Name: 'Name2',
+            id: 'id2'
+        },
+        {
+            Etat: true,
+            icon: faBolt,
+            Name: 'Name3',
+            id: 'id3'
+        },
+        {
+            Etat: true,
+            icon: faBolt,
+            Name: 'Name4',
+            id: 'id4'
+        }
+    ];
+
+    const initialAlerts: Alert[] = [
+        {
+            Room: '001',
+            Type: 'Securite',
+            Resum: 'Name1',
+            id: 'id1'
+        },
+        {
+            Room: '001',
+            Type: 'Securite',
+            Resum: 'Name2',
+            id: 'id2'
+        },
+        {
+            Room: '001',
+            Type: 'Securite',
+            Resum: 'Name3',
+            id: 'id3'
+        },
+        {
+            Room: '001',
+            Type: 'Securite',
+            Resum: 'Name4',
+            id: 'id4'
+        },
+        {
+            Room: '001',
+            Type: 'Securite',
+            Resum: 'Name5',
+            id: 'id5'
+        },
+        {
+            Room: '001',
+            Type: 'Securite',
+            Resum: 'Name6',
+            id: 'id6'
+        }
+    ];
+
+    const initialRooms: Room[] = [
+        {
+            value: 'Name1',
+            label: 'Name1',
+            id: 'id1',
+            light: '25',
+            water: '55'
+        },
+        {
+            value: 'Name2',
+            label: 'Name2',
+            id: 'id2',
+            light: '65',
+            water: '55'
+        },
+        {
+            value: 'Name3',
+            label: 'Name3',
+            id: 'id3',
+            light: '35',
+            water: '55'
+        },
+        {
+            value: 'Name4',
+            label: 'Name4',
+            id: 'id4',
+            light: '15',
+            water: '55'
+        }
+    ];
+
+    const apiKey = '0733dbe3dec34345e775d93aabe936f4';  // Remplacez par votre clé API
+    const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=Montreuil,FR&units=metric&appid=${apiKey}`);
+    const temperature = Math.round(response.data.main.temp);
+
+    return {
+        props: {
+            initialSwitches,
+            initialAlerts,
+            initialRooms,
+            temperature
+        }
+    };
 }

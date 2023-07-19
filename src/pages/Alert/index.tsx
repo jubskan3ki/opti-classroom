@@ -4,7 +4,21 @@ import styles from './Alert.module.css';
 import CardAlert from '../../../components/CardAlert/CardAlert';
 import Link from 'next/link';
 
-export default function Alert() {
+type AlertProps = {
+    selectsRoom: { value: string; label: string; id: string }[];
+    selectsWeek: { value: string; label: string; id: string }[];
+    selectsType: { value: string; label: string; id: string }[];
+    alerts: {
+        Room: string;
+        Type: string;
+        Resum: string;
+        Week: string;
+        id: string;
+    }[];
+};
+
+export default function Alert({ selectsRoom, selectsWeek, selectsType, alerts }: AlertProps) {
+
     const [selectedRoom, setSelectedRoom] = useState('');
     const [selectedWeek, setSelectedWeek] = useState('');
     const [selectedType, setSelectedType] = useState('');
@@ -21,6 +35,60 @@ export default function Alert() {
         setSelectedType(id);
     };
 
+    const filteredAlerts = alerts.filter((alert) => {
+        if (selectedRoom && alert.Room !== selectedRoom) {
+            return false;
+        }
+        if (selectedWeek && alert.Week !== selectedWeek) {
+            return false;
+        }
+        if (selectedType && alert.Type !== selectedType) {
+            return false;
+        }
+        return true;
+    });
+
+    return (
+        <div className={styles.ContentAlert}>
+            <div className={styles.ContentHigh}>
+                <Select
+                    id="room"
+                    options={selectsRoom}
+                    selectedValue={selectedRoom}
+                    onChange={handleRoomChange}
+                />
+                <Select
+                    id="week"
+                    options={selectsWeek}
+                    selectedValue={selectedWeek}
+                    onChange={handleWeekChange}
+                />
+                <Select
+                    id="type"
+                    options={selectsType}
+                    selectedValue={selectedType}
+                    onChange={handleTypeChange}
+                />
+            </div>
+
+            <div className={styles.ContentLow}>
+                {filteredAlerts.map((alert) => (
+                    <Link key={alert.id} href={`/Alert/${alert.id}`}>
+                        <CardAlert
+                            Room={alert.Room}
+                            Type={alert.Type}
+                            Resum={alert.Resum}
+                            id={alert.id}
+                        />
+                    </Link>
+                ))}
+            </div>
+        </div>
+    );
+}
+
+export async function getServerSideProps() {
+    
     const selectsRoom = [
         {
             value: '001',
@@ -163,56 +231,13 @@ export default function Alert() {
             Week: 'Week2',
             id: 'id11'
         }
-    ];
-
-    const filteredAlerts = alerts.filter((alert) => {
-        if (selectedRoom && alert.Room !== selectedRoom) {
-            return false;
+    ]
+    return {
+        props: {
+            selectsRoom,
+            selectsWeek,
+            selectsType,
+            alerts
         }
-        if (selectedWeek && alert.Week !== selectedWeek) {
-            return false;
-        }
-        if (selectedType && alert.Type !== selectedType) {
-            return false;
-        }
-        return true;
-    });
-
-    return (
-        <div className={styles.ContentAlert}>
-            <div className={styles.ContentHigh}>
-                <Select
-                    id="room"
-                    options={selectsRoom}
-                    selectedValue={selectedRoom}
-                    onChange={handleRoomChange}
-                />
-                <Select
-                    id="week"
-                    options={selectsWeek}
-                    selectedValue={selectedWeek}
-                    onChange={handleWeekChange}
-                />
-                <Select
-                    id="type"
-                    options={selectsType}
-                    selectedValue={selectedType}
-                    onChange={handleTypeChange}
-                />
-            </div>
-
-            <div className={styles.ContentLow}>
-                {filteredAlerts.map((alert) => (
-                    <Link key={alert.id} href={`/Alert/${alert.id}`}>
-                        <CardAlert
-                            Room={alert.Room}
-                            Type={alert.Type}
-                            Resum={alert.Resum}
-                            id={alert.id}
-                        />
-                    </Link>
-                ))}
-            </div>
-        </div>
-    );
+    }
 }
