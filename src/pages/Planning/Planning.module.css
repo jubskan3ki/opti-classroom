@@ -44,3 +44,13 @@
 .ButtonLink{
     width: 100%;
 }
+
+.ContentHighMobile{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.ContainerLeftMobile{
+    width: 100px;
+}
