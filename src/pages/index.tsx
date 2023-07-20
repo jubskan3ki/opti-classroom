@@ -7,8 +7,6 @@ import Logo from '../Asset/png/Logo.svg'
 import Button from '../../components/Button/Button';
 import Input from '../../components/Input/Input';
 import Switch from '../../components/Switch/Switch';
-import CardLoginLeft from '../Asset/png/CardLoginLeft.svg';
-import CardLoginRight from '../Asset/png/CardLoginRight.svg';
 
 export default function Home() {
   const [isChecked, setIsChecked] = useState(false);
