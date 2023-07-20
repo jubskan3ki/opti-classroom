@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './Home.module.css';
-import Image from 'next/image'
-import { faBolt , faDroplet , faSun , faTemperatureQuarter} from '@fortawesome/free-solid-svg-icons';
+import Image from 'next/image';
+import { faBolt, faDroplet, faSun, faTemperatureQuarter , faTemperatureArrowUp , faWind , faMicrophone} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import CardSwitch from '../../../components/CardSwitch/CardSwitch';
 import CardAlert from '../../../components/CardAlert/CardAlert';
@@ -10,11 +10,12 @@ import Back from '../../Asset/svg/backNight.svg';
 import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
 import axios from 'axios';
-import ChartComponent from '../../../components/ChartComponent/ChartComponent';
+import ChartBar from '../../../components/ChartBar/ChartBar';
+import ChartDonuts from '../../../components/ChartDonuts/ChartDonuts';
 
 interface Switch {
     Etat: boolean;
-    icon: any; // Utilisez le type approprié ici pour faBolt et autres icônes
+    icon: any;
     Name: string;
     id: string;
 }
@@ -24,6 +25,7 @@ interface Alert {
     Type: string;
     Resum: string;
     id: string;
+    Week: string;
 }
 
 interface Room {
@@ -32,10 +34,6 @@ interface Room {
     id: string;
     light: string;
     water: string;
-    electricityData: number[];
-    luminosityData: number[];
-    temperatureData: number[];
-    labels: string[];
 }
 
 interface HomeProps {
@@ -43,9 +41,20 @@ interface HomeProps {
     initialAlerts: Alert[];
     initialRooms: Room[];
     temperature: number; // Utilisez le type approprié ici
+    PeopleData: number[];
+    luminosityData: number[];
+    temperatureData: number[];
+    labels: string[];
 }
 
-export default function Home({ initialSwitches, initialAlerts, initialRooms, temperature }: HomeProps) {
+export default function Home({ initialSwitches, 
+    initialAlerts, 
+    initialRooms, 
+    temperature, 
+    PeopleData, 
+    luminosityData, 
+    temperatureData, 
+    labels }: HomeProps) {
     
     const [switches, setSwitches] = useState<Switch[]>(initialSwitches);
     const [Alerts, setAlerts] = useState<Alert[]>(initialAlerts);
@@ -128,29 +137,30 @@ export default function Home({ initialSwitches, initialAlerts, initialRooms, tem
                         ))}
                     </div>
                     <div className={styles.Card}>
-                        <ChartComponent 
-                            data={electricityData} 
+                        <ChartDonuts 
+                            data={PeopleData} 
                             labels={labels} 
                             title="Consommation électrique" 
-                            color="rgba(255, 99, 132, 0.2)"
+                            color={["#1F1F1F", "#316572", "#418596", "#62AABC", "rgba(65, 133, 150, 0.50)", "rgba(65, 133, 150, 0.25)"]}
+                            borderColor="#EBEBEB"
                         />
                     </div>
                 </div>
                 <div className={styles.DivRoomBottom}>
                     <div className={styles.Card}>
-                        <ChartComponent 
+                        <ChartBar 
                             data={temperatureData} 
                             labels={labels} 
-                            title="Température" 
-                            color="rgba(255, 206, 86, 0.2)"
+                            title="temperatureData" 
+                            color="#316572"
                         />
                     </div>
                     <div className={styles.Card}>
-                        <ChartComponent 
+                        <ChartBar 
                             data={luminosityData} 
                             labels={labels} 
-                            title="Luminosité" 
-                            color="rgba(54, 162, 235, 0.2)"
+                            title="luminosityData" 
+                            color="#316572"
                         />
                     </div>
                 </div>
@@ -182,101 +192,183 @@ export default function Home({ initialSwitches, initialAlerts, initialRooms, tem
 }
 
 export async function getServerSideProps() {
+
+    const PeopleData = [120, 215, 129, 158, 113, 210];
+    const luminosityData = [300, 320, 290, 315, 310, 305];
+    const temperatureData = [20, 21, 19, 20, 20, 22];
+    const labels = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"];
+
     
     const initialSwitches : Switch[] = [
         {
             Etat: true,
-            icon: faBolt,
-            Name: 'Name1',
+            icon: faTemperatureArrowUp,
+            Name: 'Chauffage',
             id: 'id1'
         },
         {
             Etat: true,
             icon: faBolt,
-            Name: 'Name2',
+            Name: 'Lumière',
             id: 'id2'
         },
         {
             Etat: true,
-            icon: faBolt,
-            Name: 'Name3',
+            icon: faWind,
+            Name: 'Ventilateur',
             id: 'id3'
         },
         {
             Etat: true,
-            icon: faBolt,
-            Name: 'Name4',
+            icon: faMicrophone,
+            Name: 'Micro',
             id: 'id4'
         }
     ];
 
     const initialAlerts: Alert[] = [
         {
-            Room: '001',
-            Type: 'Securite',
-            Resum: 'Name1',
-            id: 'id1'
+            "Room": "001",
+            "Type": "Présence",
+            "Resum": "Présence détectée après les heures de travail",
+            "Week": "Week1",
+            "id": "id1"
         },
         {
-            Room: '001',
-            Type: 'Securite',
-            Resum: 'Name2',
-            id: 'id2'
+            "Room": "002",
+            "Type": "Luminosité",
+            "Resum": "Luminosité trop basse pour la lecture",
+            "Week": "Week2",
+            "id": "id2"
         },
         {
-            Room: '001',
-            Type: 'Securite',
-            Resum: 'Name3',
-            id: 'id3'
+            "Room": "003",
+            "Type": "Température",
+            "Resum": "Température dépassant 30°C",
+            "Week": "Week3",
+            "id": "id3"
         },
         {
-            Room: '001',
-            Type: 'Securite',
-            Resum: 'Name4',
-            id: 'id4'
+            "Room": "004",
+            "Type": "Son",
+            "Resum": "Niveau sonore élevé détecté",
+            "Week": "Week1",
+            "id": "id4"
         },
         {
-            Room: '001',
-            Type: 'Securite',
-            Resum: 'Name5',
-            id: 'id5'
+            "Room": "005",
+            "Type": "Présence",
+            "Resum": "Aucune présence détectée pendant les heures de travail",
+            "Week": "Week2",
+            "id": "id5"
         },
         {
-            Room: '001',
-            Type: 'Securite',
-            Resum: 'Name6',
-            id: 'id6'
+            "Room": "006",
+            "Type": "Luminosité",
+            "Resum": "Luminosité trop élevée",
+            "Week": "Week3",
+            "id": "id6"
+        },
+        {
+            "Room": "007",
+            "Type": "Température",
+            "Resum": "Température descend en dessous de 15°C",
+            "Week": "Week1",
+            "id": "id7"
+        },
+        {
+            "Room": "008",
+            "Type": "Son",
+            "Resum": "Niveau sonore trop bas",
+            "Week": "Week2",
+            "id": "id8"
+        },
+        {
+            "Room": "009",
+            "Type": "Présence",
+            "Resum": "Mouvement détecté dans une zone sécurisée",
+            "Week": "Week3",
+            "id": "id9"
+        },
+        {
+            "Room": "010",
+            "Type": "Luminosité",
+            "Resum": "Absence de lumière pendant les heures de travail",
+            "Week": "Week1",
+            "id": "id10"
+        },
+        {
+            "Room": "011",
+            "Type": "Température",
+            "Resum": "Température stable à 20°C",
+            "Week": "Week2",
+            "id": "id11"
         }
     ];
 
     const initialRooms: Room[] = [
         {
-            value: 'Name1',
-            label: 'Name1',
-            id: 'id1',
+            value: 'Room001',
+            label: '001',
+            id: 'id001',
             light: '25',
             water: '55'
         },
         {
-            value: 'Name2',
-            label: 'Name2',
-            id: 'id2',
+            value: 'Room002',
+            label: '002',
+            id: 'id002',
             light: '65',
-            water: '55'
+            water: '50'
         },
         {
-            value: 'Name3',
-            label: 'Name3',
-            id: 'id3',
+            value: 'Room003',
+            label: '003',
+            id: 'id003',
             light: '35',
-            water: '55'
+            water: '52'
         },
         {
-            value: 'Name4',
-            label: 'Name4',
-            id: 'id4',
-            light: '15',
-            water: '55'
+            value: 'Room004',
+            label: '004',
+            id: 'id004',
+            light: '45',
+            water: '60'
+        },
+        {
+            value: 'Room005',
+            label: '005',
+            id: 'id005',
+            light: '55',
+            water: '65'
+        },
+        {
+            value: 'Room006',
+            label: '006',
+            id: 'id006',
+            light: '75',
+            water: '70'
+        },
+        {
+            value: 'Room007',
+            label: '007',
+            id: 'id007',
+            light: '85',
+            water: '75'
+        },
+        {
+            value: 'Room008',
+            label: '008',
+            id: 'id008',
+            light: '95',
+            water: '80'
+        },
+        {
+            value: 'Room009',
+            label: '009',
+            id: 'id009',
+            light: '50',
+            water: '85'
         }
     ];
 
@@ -289,7 +381,11 @@ export async function getServerSideProps() {
             initialSwitches,
             initialAlerts,
             initialRooms,
-            temperature
+            temperature,
+            PeopleData,
+            luminosityData,
+            temperatureData,
+            labels
         }
     };
 }

@@ -16,7 +16,7 @@ const Button = ({ text, onClick, variant, icon }: ButtonProps) => {
   return (
     <button onClick={onClick} className={buttonClassName}>
       {text}
-      {variant ? <FontAwesomeIcon icon={icon} /> : ""}
+      {variant && icon ? <FontAwesomeIcon icon={icon} /> : ""}
     </button>
   );
 };

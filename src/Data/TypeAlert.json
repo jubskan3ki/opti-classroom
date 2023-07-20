@@ -1,0 +1,9 @@
+{
+    "TypeAlert": [
+      { "Type": "Présence" },
+      { "Type": "Luminosité" },
+      { "Type": "Température" },
+      { "Type": "Son" }
+    ]
+  }
+  

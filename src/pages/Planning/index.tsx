@@ -66,7 +66,7 @@ export default function Planning({ initialRooms, initialWeeks }: PlanningProps) 
             />
             <div className={styles.ButtonLink}>
                 <Link href={`/Planning/Room/${selectedValue}`}>
-                    <Button text={selectedRoomLabel} variant='primary' icon={faGear}></Button>
+                    <Button text={"Setting "+selectedRoomLabel} variant='primary' icon={faGear}></Button>
                 </Link>
             </div>
             
@@ -128,25 +128,95 @@ export default function Planning({ initialRooms, initialWeeks }: PlanningProps) 
 
 export async function getStaticProps() {
  
-  const initialRooms = [
-      { value: 'Salon', label: 'Salon', id: 'id1' },
-      { value: 'Chambre', label: 'Chambre', id: 'id2' },
-      { value: 'Cuisine', label: 'Cuisine', id: 'id3' },
-      { value: 'Garage', label: 'Garage', id: 'id4' },
-      { value: 'Salle de bain', label: 'Salle de bain', id: 'id5' }
-  ];
+    const initialRooms = [
+        {
+            value: 'Room001',
+            label: '001',
+            id: 'id001',
+            light: '25',
+            water: '55'
+        },
+        {
+            value: 'Room002',
+            label: '002',
+            id: 'id002',
+            light: '65',
+            water: '50'
+        },
+        {
+            value: 'Room003',
+            label: '003',
+            id: 'id003',
+            light: '35',
+            water: '52'
+        },
+        {
+            value: 'Room004',
+            label: '004',
+            id: 'id004',
+            light: '45',
+            water: '60'
+        },
+        {
+            value: 'Room005',
+            label: '005',
+            id: 'id005',
+            light: '55',
+            water: '65'
+        },
+        {
+            value: 'Room006',
+            label: '006',
+            id: 'id006',
+            light: '75',
+            water: '70'
+        },
+        {
+            value: 'Room007',
+            label: '007',
+            id: 'id007',
+            light: '85',
+            water: '75'
+        },
+        {
+            value: 'Room008',
+            label: '008',
+            id: 'id008',
+            light: '95',
+            water: '80'
+        },
+        {
+            value: 'Room009',
+            label: '009',
+            id: 'id009',
+            light: '50',
+            water: '85'
+        }
+    ]
 
-  const initialWeeks = [
-      { value: 'Semaine 1', label: 'Semaine 1', id: 'id1' },
-      { value: 'Semaine 2', label: 'Semaine 2', id: 'id2' },
-      { value: 'Semaine 3', label: 'Semaine 3', id: 'id3' },
-      { value: 'Semaine 4', label: 'Semaine 4', id: 'id4' }
-  ];
+    const initialWeeks = [
+        {
+            "value": "Week1",
+            "label": "Semaine 1",
+            "id": "week1"
+        },
+        {
+            "value": "Week2",
+            "label": "Semaine 2",
+            "id": "week2"
+        },
+        {
+            "value": "Week3",
+            "label": "Semaine 3",
+            "id": "week3"
+        }
+    ]   
+    
 
-  return {
-      props: {
-          initialRooms,
-          initialWeeks
-      }
-  };
+    return {
+        props: {
+            initialRooms,
+            initialWeeks
+        }
+    };
 }

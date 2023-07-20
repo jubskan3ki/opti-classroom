@@ -1,0 +1,32 @@
+{
+    "User": [
+      {
+        "id": "user001",
+        "nom": "Dupont",
+        "prenom": "Jean",
+        "email": "jean.dupont@example.com",
+        "password": "mdpSecure123"
+      },
+      {
+        "id": "user002",
+        "nom": "Martin",
+        "prenom": "Lucie",
+        "email": "lucie.martin@example.com",
+        "password": "luciePass456"
+      },
+      {
+        "id": "user003",
+        "nom": "Leroy",
+        "prenom": "Mathieu",
+        "email": "mathieu.leroy@example.com",
+        "password": "mathieu789Pass"
+      },
+      {
+        "id": "user003",
+        "nom": "Juba",
+        "prenom": "Aitadda",
+        "email": "Juba@Aitadda.com",
+        "password": "azertyuui" 
+      }
+    ]
+}

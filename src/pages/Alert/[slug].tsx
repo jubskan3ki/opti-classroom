@@ -100,8 +100,83 @@ export default function Alert({selectsRoom, selectsWeek, selectsType, alerts ,sw
 
 export async function getStaticPaths() {
     const alerts = [
-        { id: 'id1' },
-        { id: 'id2' },
+        {
+            Room: "Room001",
+            Type: "Présence",
+            Resum: "Présence détectée après les heures de travail",
+            Week: "Week1",
+            id: "id1"
+        },
+        {
+            Room: "Room002",
+            Type: "Luminosité",
+            Resum: "Luminosité trop basse pour la lecture",
+            Week: "Week2",
+            id: "id2"
+        },
+        {
+            Room: "Room003",
+            Type: "Température",
+            Resum: "Température dépassant 30°C",
+            Week: "Week3",
+            id: "id3"
+        },
+        {
+            Room: "Room004",
+            Type: "Son",
+            Resum: "Niveau sonore élevé détecté",
+            Week: "Week1",
+            id: "id4"
+        },
+        {
+            Room: "Room005",
+            Type: "Présence",
+            Resum: "Aucune présence détectée pendant les heures de travail",
+            Week: "Week2",
+            id: "id5"
+        },
+        {
+            Room: "Room006",
+            Type: "Luminosité",
+            Resum: "Luminosité trop élevée",
+            Week: "Week3",
+            id: "id6"
+        },
+        {
+            Room: "Room007",
+            Type: "Température",
+            Resum: "Température descend en dessous de 15°C",
+            Week: "Week1",
+            id: "id7"
+        },
+        {
+            Room: "Room008",
+            Type: "Son",
+            Resum: "Niveau sonore trop bas",
+            Week: "Week2",
+            id: "id8"
+        },
+        {
+            Room: "Room009",
+            Type: "Présence",
+            Resum: "Mouvement détecté dans une zone sécurisée",
+            Week: "Week3",
+            id: "id9"
+        },
+        {
+            Room: "Room010",
+            Type: "Luminosité",
+            Resum: "Absence de lumière pendant les heures de travail",
+            Week: "Week1",
+            id: "id10"
+        },
+        {
+            Room: "Room011",
+            Type: "Température",
+            Resum: "Température stable à 20°C",
+            Week: "Week2",
+            id: "id11"
+        }
     ];
 
     const paths = alerts.map((alert) => ({
@@ -152,147 +227,191 @@ export async function getStaticProps({ params }: { params: Params }): Promise<Ge
     }
     const selectsRoom = [
         {
-            value: '001',
+            value: 'Room001',
             label: '001',
-            id: 'id1',
+            id: 'id001',
+            light: '25',
+            water: '55'
         },
         {
-            value: '002',
+            value: 'Room002',
             label: '002',
-            id: 'id2',
+            id: 'id002',
+            light: '65',
+            water: '50'
         },
         {
-            value: '003',
+            value: 'Room003',
             label: '003',
-            id: 'id3',
+            id: 'id003',
+            light: '35',
+            water: '52'
         },
         {
-            value: '004',
+            value: 'Room004',
             label: '004',
-            id: 'id4',
+            id: 'id004',
+            light: '45',
+            water: '60'
         },
         {
-            value: '005',
+            value: 'Room005',
             label: '005',
-            id: 'id5',
+            id: 'id005',
+            light: '55',
+            water: '65'
         },
+        {
+            value: 'Room006',
+            label: '006',
+            id: 'id006',
+            light: '75',
+            water: '70'
+        },
+        {
+            value: 'Room007',
+            label: '007',
+            id: 'id007',
+            light: '85',
+            water: '75'
+        },
+        {
+            value: 'Room008',
+            label: '008',
+            id: 'id008',
+            light: '95',
+            water: '80'
+        },
+        {
+            value: 'Room009',
+            label: '009',
+            id: 'id009',
+            light: '50',
+            water: '85'
+        }
     ];
 
     const selectsWeek = [
-        {
-            value: 'Week1',
-            label: 'Week1',
-            id: 'week1',
-        },
-        {
-            value: 'Week2',
-            label: 'Week2',
-            id: 'week2',
-        },
-        {
-            value: 'Week3',
-            label: 'Week3',
-            id: 'week3',
-        },
-    ];
+            {
+                "value": "Week1",
+                "label": "Semaine 1",
+                "id": "week1"
+            },
+            {
+                "value": "Week2",
+                "label": "Semaine 2",
+                "id": "week2"
+            },
+            {
+                "value": "Week3",
+                "label": "Semaine 3",
+                "id": "week3"
+            }
+        ] 
 
     const selectsType = [
         {
-            value: 'Securite',
-            label: 'Securite',
+            value: "Présence",
+            label: 'Présence',
             id: 'type1',
         },
         {
-            value: 'News',
-            label: 'News',
+            value: "Luminosité",
+            label: 'Luminosité',
             id: 'type2',
         },
         {
-            value: 'Avetissement',
-            label: 'Avetissement',
+            value: "Température",
+            label: 'Température',
             id: 'type3',
         },
+        {
+            value: "Son",
+            label: 'Son',
+            id: 'type4',
+        }
     ];
+    
 
     const alerts = [
         {
-            Room: '001',
-            Type: 'Securite',
-            Resum: 'Name1',
-            Week: 'Week1',
-            id: 'id1'
+            Room: "Room001",
+            Type: "Présence",
+            Resum: "Présence détectée après les heures de travail",
+            Week: "Week1",
+            id: "id1"
         },
         {
-            Room: '001',
-            Type: 'Securite',
-            Resum: 'Name2',
-            Week: 'Week2',
-            id: 'id2'
+            Room: "Room002",
+            Type: "Luminosité",
+            Resum: "Luminosité trop basse pour la lecture",
+            Week: "Week2",
+            id: "id2"
         },
         {
-            Room: '001',
-            Type: 'Securite',
-            Resum: 'Name3',
-            Week: 'Week3',
-            id: 'id3'
+            Room: "Room003",
+            Type: "Température",
+            Resum: "Température dépassant 30°C",
+            Week: "Week3",
+            id: "id3"
         },
         {
-            Room: '001',
-            Type: 'Securite',
-            Resum: 'Name4',
-            Week: 'Week1',
-            id: 'id4'
+            Room: "Room004",
+            Type: "Son",
+            Resum: "Niveau sonore élevé détecté",
+            Week: "Week1",
+            id: "id4"
         },
         {
-            Room: '001',
-            Type: 'Securite',
-            Resum: 'Name5',
-            Week: 'Week2',
-            id: 'id5'
+            Room: "Room005",
+            Type: "Présence",
+            Resum: "Aucune présence détectée pendant les heures de travail",
+            Week: "Week2",
+            id: "id5"
         },
         {
-            Room: '001',
-            Type: 'Securite',
-            Resum: 'Name6',
-            Week: 'Week3',
-            id: 'id6'
+            Room: "Room006",
+            Type: "Luminosité",
+            Resum: "Luminosité trop élevée",
+            Week: "Week3",
+            id: "id6"
         },
         {
-            Room: '001',
-            Type: 'Securite',
-            Resum: 'Name7',
-            Week: 'Week1',
-            id: 'id7'
+            Room: "Room007",
+            Type: "Température",
+            Resum: "Température descend en dessous de 15°C",
+            Week: "Week1",
+            id: "id7"
         },
         {
-            Room: '001',
-            Type: 'Securite',
-            Resum: 'Name8',
-            Week: 'Week2',
-            id: 'id8'
+            Room: "Room008",
+            Type: "Son",
+            Resum: "Niveau sonore trop bas",
+            Week: "Week2",
+            id: "id8"
         },
         {
-            Room: '001',
-            Type: 'Securite',
-            Resum: 'Name9',
-            Week: 'Week3',
-            id: 'id9'
+            Room: "Room009",
+            Type: "Présence",
+            Resum: "Mouvement détecté dans une zone sécurisée",
+            Week: "Week3",
+            id: "id9"
         },
         {
-            Room: '001',
-            Type: 'Securite',
-            Resum: 'Name10',
-            Week: 'Week1',
-            id: 'id10'
+            Room: "Room010",
+            Type: "Luminosité",
+            Resum: "Absence de lumière pendant les heures de travail",
+            Week: "Week1",
+            id: "id10"
         },
         {
-            Room: '001',
-            Type: 'Securite',
-            Resum: 'Name11',
-            Week: 'Week2',
-            id: 'id11'
+            Room: "Room011",
+            Type: "Température",
+            Resum: "Température stable à 20°C",
+            Week: "Week2",
+            id: "id11"
         }
-    ]
+    ];
 
     return {
         props: {

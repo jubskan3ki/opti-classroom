@@ -1,0 +1,20 @@
+{
+    "Week": [
+      {
+        "value": "Week1",
+        "label": "Semaine1",
+        "id": "week1"
+      },
+      {
+        "value": "Week2",
+        "label": "Semaine2",
+        "id": "week2"
+      },
+      {
+        "value": "Week3",
+        "label": "Semaine3",
+        "id": "week3"
+      }
+    ]
+  }
+  

@@ -1,0 +1,25 @@
+{
+    "Switch": [
+      {
+        "Etat": true,
+        "Name": "Chauffage",
+        "id": "id1"
+      },
+      {
+        "Etat": true,
+        "Name": "Lumière",
+        "id": "id2"
+      },
+      {
+        "Etat": true,
+        "Name": "Ventilateur",
+        "id": "id3"
+      },
+      {
+        "Etat": true,
+        "Name": "Micro",
+        "id": "id4"
+      }
+    ]
+  }
+  

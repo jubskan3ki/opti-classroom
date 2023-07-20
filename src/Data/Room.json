@@ -1,0 +1,68 @@
+{
+    "Room": [
+      {
+        "value": "Room001",
+        "label": "Salle001",
+        "id": "id001",
+        "light": "25",
+        "water": "55"
+      },
+      {
+        "value": "Room002",
+        "label": "Salle002",
+        "id": "id002",
+        "light": "65",
+        "water": "50"
+      },
+      {
+        "value": "Room003",
+        "label": "Salle003",
+        "id": "id003",
+        "light": "35",
+        "water": "52"
+      },
+      {
+        "value": "Room004",
+        "label": "Salle004",
+        "id": "id004",
+        "light": "45",
+        "water": "60"
+      },
+      {
+        "value": "Room005",
+        "label": "Salle005",
+        "id": "id005",
+        "light": "55",
+        "water": "65"
+      },
+      {
+        "value": "Room006",
+        "label": "Salle006",
+        "id": "id006",
+        "light": "75",
+        "water": "70"
+      },
+      {
+        "value": "Room007",
+        "label": "Salle007",
+        "id": "id007",
+        "light": "85",
+        "water": "75"
+      },
+      {
+        "value": "Room008",
+        "label": "Salle008",
+        "id": "id008",
+        "light": "95",
+        "water": "80"
+      },
+      {
+        "value": "Room009",
+        "label": "Salle009",
+        "id": "id009",
+        "light": "50",
+        "water": "85"
+      }
+    ]
+  }
+  
