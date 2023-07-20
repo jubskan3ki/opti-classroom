@@ -180,6 +180,11 @@
   dependencies:
     "@swc/helpers" "^0.5.0"
 
+"@kurkle/color@^0.3.0":
+  version "0.3.2"
+  resolved "https://registry.npmjs.org/@kurkle/color/-/color-0.3.2.tgz"
+  integrity sha512-fuscdXJ9G1qb7W8VdHi+IwRqij3lBkosAm4ydQtEmbY58OzHXqQhvlxqEkoz0yssNVn38bcpRWgA9PP+OGoisw==
+
 "@next/env@13.4.9":
   version "13.4.9"
   resolved "https://registry.npmjs.org/@next/env/-/env-13.4.9.tgz"
@@ -878,6 +883,13 @@
   resolved "https://registry.npmjs.org/@types/prop-types/-/prop-types-15.7.5.tgz"
   integrity sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==
 
+"@types/react-chartjs-2@^2.5.7":
+  version "2.5.7"
+  resolved "https://registry.npmjs.org/@types/react-chartjs-2/-/react-chartjs-2-2.5.7.tgz"
+  integrity sha512-waqYqiNULIVUqaKO7MGUpFmWrVtH7gVPOzqwV4y4zgUyu/JiDwC005PpveO442HKnby9kLgp3t1SB2sld+ACLw==
+  dependencies:
+    react-chartjs-2 "*"
+
 "@types/react-dom@18.2.6":
   version "18.2.6"
   resolved "https://registry.npmjs.org/@types/react-dom/-/react-dom-18.2.6.tgz"
@@ -1174,6 +1186,13 @@ chalk@^4.0.0:
   dependencies:
     ansi-styles "^4.1.0"
     supports-color "^7.1.0"
+
+chart.js@^4.1.1, chart.js@^4.3.0:
+  version "4.3.0"
+  resolved "https://registry.npmjs.org/chart.js/-/chart.js-4.3.0.tgz"
+  integrity sha512-ynG0E79xGfMaV2xAHdbhwiPLczxnNNnasrmPEXriXsPJGjmhOBYzFVEsB65w2qMDz+CaBJJuJD0inE/ab/h36g==
+  dependencies:
+    "@kurkle/color" "^0.3.0"
 
 client-only@0.0.1:
   version "0.0.1"
@@ -2584,6 +2603,11 @@ queue-microtask@^1.2.2:
   resolved "https://registry.npmjs.org/queue-microtask/-/queue-microtask-1.2.3.tgz"
   integrity sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==
 
+react-chartjs-2@*, react-chartjs-2@^5.2.0:
+  version "5.2.0"
+  resolved "https://registry.npmjs.org/react-chartjs-2/-/react-chartjs-2-5.2.0.tgz"
+  integrity sha512-98iN5aguJyVSxp5U3CblRLH67J8gkfyGNbiK3c+l1QI/G4irHMPQw44aEPmjVag+YKTyQ260NcF82GTQ3bdscA==
+
 "react-dom@^15.3.0 || ^16.0.0 || ^17.0.0 || ^18.0.0", "react-dom@^16.8.0 || ^17.0.0-rc.1 || ^18.0.0", react-dom@^18.2.0, react-dom@>=16.8.0, react-dom@18.2.0:
   version "18.2.0"
   resolved "https://registry.npmjs.org/react-dom/-/react-dom-18.2.0.tgz"
@@ -2604,7 +2628,7 @@ react-switch@^7.0.0:
   dependencies:
     prop-types "^15.7.2"
 
-"react@^15.3.0 || ^16.0.0 || ^17.0.0 || ^18.0.0", "react@^16.8.0 || ^17.0.0-rc.1 || ^18.0.0", react@^18.2.0, "react@>= 16.3.0", "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", react@>=16.3, react@>=16.8.0, react@18.2.0:
+"react@^15.3.0 || ^16.0.0 || ^17.0.0 || ^18.0.0", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^16.8.0 || ^17.0.0-rc.1 || ^18.0.0", react@^18.2.0, "react@>= 16.3.0", "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", react@>=16.3, react@>=16.8.0, react@18.2.0:
   version "18.2.0"
   resolved "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
   integrity sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==

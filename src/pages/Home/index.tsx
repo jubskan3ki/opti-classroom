@@ -10,6 +10,7 @@ import Back from '../../Asset/svg/backNight.svg';
 import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
 import axios from 'axios';
+import ChartComponent from '../../../components/ChartComponent/ChartComponent';
 
 interface Switch {
     Etat: boolean;
@@ -31,6 +32,10 @@ interface Room {
     id: string;
     light: string;
     water: string;
+    electricityData: number[];
+    luminosityData: number[];
+    temperatureData: number[];
+    labels: string[];
 }
 
 interface HomeProps {
@@ -122,14 +127,31 @@ export default function Home({ initialSwitches, initialAlerts, initialRooms, tem
                             />
                         ))}
                     </div>
-                    <div className={styles.Card}></div>
+                    <div className={styles.Card}>
+                        <ChartComponent 
+                            data={electricityData} 
+                            labels={labels} 
+                            title="Consommation électrique" 
+                            color="rgba(255, 99, 132, 0.2)"
+                        />
+                    </div>
                 </div>
                 <div className={styles.DivRoomBottom}>
                     <div className={styles.Card}>
-
+                        <ChartComponent 
+                            data={temperatureData} 
+                            labels={labels} 
+                            title="Température" 
+                            color="rgba(255, 206, 86, 0.2)"
+                        />
                     </div>
                     <div className={styles.Card}>
-                    
+                        <ChartComponent 
+                            data={luminosityData} 
+                            labels={labels} 
+                            title="Luminosité" 
+                            color="rgba(54, 162, 235, 0.2)"
+                        />
                     </div>
                 </div>
             </div>
