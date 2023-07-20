@@ -5,18 +5,6 @@ import styles from './ChartBar.module.css';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-export const options = {
-    responsive: true,
-    plugins: {
-      legend: {
-        position: 'top' as const,
-      },
-      title: {
-        display: true,
-        text: 'Chart.js Bar Chart',
-      },
-    },
-};
 interface ChartProps {
     data: number[];
     labels: string[];
