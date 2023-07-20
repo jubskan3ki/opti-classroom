@@ -54,3 +54,17 @@
 .ContainerLeftMobile{
     width: 100px;
 }
+
+.responsiveDays{
+    overflow-x: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 20px;
+    padding: 10px;
+}
+
+@media screen and (max-width: 800px) {
+    .ContentPlanning {
+      grid-template-columns: auto 1fr ;
+    }
+  }

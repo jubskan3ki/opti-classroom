@@ -7,7 +7,6 @@ import CardPlanningButton from '../../../components/CardPlanningButton/CardPlann
 import { faGear } from '@fortawesome/free-solid-svg-icons';
 import Link from '../../../components/Link/Link';
 import Title from '../../../components/Title/Title';
-import Swiper from '../../../components/Swiper/Swiper';
 
 type SelectOption = {
     value: string;
@@ -89,24 +88,24 @@ export default function Planning({ initialRooms, initialWeeks }: PlanningProps) 
             </div>
 
             {isMobile ? (
-                <div style={{ width: '100vw', overflow: 'hidden' }}>
-                    <Swiper>
-                        {
+                <div className={styles.responsiveDays}>
+                    {
                         days.map((day, index) => (
                             <div className={styles.Content} key={index}>
-                                <div className={styles.ContentPlanningFistRow}>
-                                    <CardPlanning textBlack={day} textBlue={dates[index]} />
-                                </div>
-                                <Link href={`/Planning/Event/${selectedValue}`}>
-                                    <CardPlanningButton id={`btn${index+1}`} />
-                                </Link>
+                            <div className={styles.ContentPlanningFistRow}>
+                                <CardPlanning textBlack={day} textBlue={dates[index]} />
+                            </div>
+                            <Link href={`/Planning/Event/${selectedValue}`}>
+                                <CardPlanningButton id={`btn${index+1}`} />
+                            </Link>
                                 <CardPlanningButton id={`btn${index+2}`} />
                             </div>
-                        ))}
-                    </Swiper>
+                        ))
+                    }
                 </div>
                 
-                ) : (
+                
+            ) : (
                     
                 days.map((day, index) => (
                     <div className={styles.Content} key={index}>
