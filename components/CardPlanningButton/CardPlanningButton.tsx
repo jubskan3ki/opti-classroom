@@ -3,13 +3,13 @@ import styles from './CardPlanningButton.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGear } from '@fortawesome/free-solid-svg-icons';
 
-interface CardPlanningButtonProps {
+interface CardPlanningButtonProps extends React.HTMLAttributes<HTMLDivElement> {
   onClick?: () => void;
 }
 
-const CardPlanningButton: React.FC<CardPlanningButtonProps> = ({ onClick }) => {
+const CardPlanningButton: React.FC<CardPlanningButtonProps> = ({ onClick, ...props }) => {
   return (
-    <div className={styles.Card} onClick={onClick}>
+    <div className={styles.Card} onClick={onClick} {...props}>
       <div className={styles.Icon}>
         <FontAwesomeIcon icon={faGear} />
       </div>
@@ -18,4 +18,3 @@ const CardPlanningButton: React.FC<CardPlanningButtonProps> = ({ onClick }) => {
 };
 
 export default CardPlanningButton;
-
