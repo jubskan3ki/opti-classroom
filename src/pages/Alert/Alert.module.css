@@ -38,6 +38,17 @@
     padding: 10px;
 }
 
+@media screen and (max-width: 1200px) {
+    .ContentLow{
+        grid-template-columns: 1fr 1fr;
+    }
+  }
+@media screen and (max-width: 700px) {
+    .ContentLow{
+        grid-template-columns: 1fr;
+    }
+  }
+
 .ContentAlert{
     height: 92.5vh;
     overflow: hidden;
