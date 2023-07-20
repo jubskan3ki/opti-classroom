@@ -1,6 +1,9 @@
 import React, { useState } from 'react'; 
 import styles from './Login.module.css';
 import Image from 'next/image';
+import CardLoginLeft from '../Asset/png/CardLoginLeft.svg';
+import CardLoginRight from '../Asset/png/CardLoginRight.svg';
+import Logo from '../Asset/png/Logo.svg'
 import Button from '../../components/Button/Button';
 import Input from '../../components/Input/Input';
 import Switch from '../../components/Switch/Switch';
@@ -38,6 +41,14 @@ export default function Home() {
   };
 
   return (
+    <div className={styles.AllContent}>
+      <div className={styles.LogoContent}>
+        <div className={styles.TextLogo}>
+          <div className={styles.Text}>Opti-ClassRoom</div> 
+          <Image className={styles.Logo} src={Logo} alt='logo' /></div>
+       
+      </div>
+    
     <div className={styles.Content}>
       <div className={styles.ContentLeft}>
         <div className={styles.CardLeft}>
@@ -89,6 +100,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 }
