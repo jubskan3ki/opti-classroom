@@ -13,6 +13,11 @@
     align-items: center;
     padding: 20px;
 }
+@media screen and (max-width: 700px) {
+    .Content {
+      grid-template-columns: 1fr;
+    }
+  }
 
 .CardLeft, .CardRight{
     border-radius: 10px;
