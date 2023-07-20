@@ -62,7 +62,7 @@ export default function Setting({ user }: SettingProps) {
                 </div>
             </div>
 
-            <Image src={SettingImg} alt='Setting' />
+            <Image className={style.ImgLeft} src={SettingImg} alt='Setting' />
 
         </div>
     )
