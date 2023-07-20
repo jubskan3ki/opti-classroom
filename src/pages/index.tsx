@@ -44,7 +44,6 @@ export default function Home() {
         <div className={styles.TextLogo}>
           <div className={styles.Text}>Opti-ClassRoom</div> 
           <Image className={styles.Logo} src={Logo} alt='logo' /></div>
-       
       </div>
     
     <div className={styles.Content}>
