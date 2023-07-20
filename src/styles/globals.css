@@ -42,7 +42,7 @@ body{
   grid-template-columns: auto 1fr;
   gap: 2.5vw;
   margin: 2.5vw;
-}
+}ù
 
 h1{
     font-size:2.5vw;    
@@ -225,6 +225,15 @@ small{
 }
 
 @media (max-width:1024px) {
+
+    #__next{
+        display: flex;
+        flex-direction: column-reverse;
+        height: 92.5vh;
+    }
+
+    
+
     h1{
         font-size:3vw;    
     }

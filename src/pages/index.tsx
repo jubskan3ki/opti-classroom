@@ -3,14 +3,12 @@ import styles from './Login.module.css';
 import Image from 'next/image';
 import CardLoginLeft from '../Asset/png/CardLoginLeft.svg';
 import CardLoginRight from '../Asset/png/CardLoginRight.svg';
-import Logo from '../Asset/png/Logo.svg'
+import Logo from '../Asset/png/Logo.png'
 import Button from '../../components/Button/Button';
 import Input from '../../components/Input/Input';
 import Switch from '../../components/Switch/Switch';
 
 export default function Home() {
-  const [isChecked, setIsChecked] = useState(false);
-
   // Informations pour la connexion et l'inscription
   const [userInfo, setUserInfo] = useState({
     loginName: '',
@@ -26,7 +24,6 @@ export default function Home() {
       console.log('Informations de connexion:', {
         name: userInfo.loginName,
         email: userInfo.loginEmail,
-        stayConnected: isChecked
       });
     } else if (type === 'signup') {
       console.log('Informations d’inscription:', {
@@ -39,16 +36,16 @@ export default function Home() {
   };
 
   return (
-    <div className={styles.AllContent}>
+      
+    
+    <div className={styles.Content}>
       <div className={styles.LogoContent}>
         <div className={styles.TextLogo}>
           <div className={styles.Text}>Opti-ClassRoom</div> 
-          <Image className={styles.Logo} src={Logo} alt='logo' /></div>
+          <Image className={styles.Logo} src={Logo} alt='logo' />
+        </div>
        
       </div>
-    
-    <div className={styles.Content}>
-      <div className={styles.ContentLeft}>
         <div className={styles.CardLeft}>
           <h1 className={styles.Title}>Se connecter</h1>
           <Image className={styles.LoginImg} src={CardLoginLeft} alt='CardLoginLeft' />
@@ -63,13 +60,10 @@ export default function Home() {
               value={userInfo.loginEmail}
               onChange={(e) => setUserInfo(prev => ({ ...prev, loginEmail: e.target.value }))}
             />
-            <Switch id="Switch" isChecked={isChecked} onChange={(checked) => setIsChecked(checked)} />
             <Button text="CONTINUE" onClick={() => handleSubmit('login')} />
           </div>
         </div>
-      </div>
 
-      <div className={styles.ContentRight}>
         <div className={styles.CardRight}>
           <h1 className={styles.Title}>S’inscrire</h1>
           <Image className={styles.LoginImg} src={CardLoginRight} alt='CardLoginRight' />
@@ -97,8 +91,6 @@ export default function Home() {
             <Button text="CONTINUE" onClick={() => handleSubmit('signup')} />
           </div>
         </div>
-      </div>
-    </div>
     </div>
   );
 }
