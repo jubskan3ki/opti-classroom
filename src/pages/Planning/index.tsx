@@ -1,94 +1,153 @@
 import React, { useEffect, useState } from 'react';
-import Link from 'next/link';
-import styles from './Navbar.module.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faHouse,
-  faClipboardList,
-  faCalendarDays,
-  faGear,
-  faArrowRightToBracket,
-} from '@fortawesome/free-solid-svg-icons';
-import { useRouter } from 'next/router';
+import Select from '../../../components/Select/Select'
+import Button from '../../../components/Button/Button';
+import styles from './Planning.module.css'
+import CardPlanning from '../../../components/CardPlanning/CardPlanning';
+import CardPlanningButton from '../../../components/CardPlanningButton/CardPlanningButton';
+import { faGear } from '@fortawesome/free-solid-svg-icons';
+import Link from '../../../components/Link/Link';
+import Title from '../../../components/Title/Title';
+import Swiper from '../../../components/Swiper/Swiper';
 
-export default function Navbar() {
-  const router = useRouter();
-  const [isMobile, setIsMobile] = useState(false);
+type SelectOption = {
+    value: string;
+    label: string;
+    id: string;
+};
+  
+type PlanningProps = {
+    initialRooms: SelectOption[];
+    initialWeeks: SelectOption[];
+};
 
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 1024); // Définir la largeur à partir de laquelle vous souhaitez afficher le menu mobile
+export default function Planning({ initialRooms, initialWeeks }: PlanningProps) {
+
+    const [selectedValue, setSelectedValue] = useState(initialRooms[0].id);
+   
+    const handleSelectChange = (id: string) => {
+        setSelectedValue(id);
     };
 
-    handleResize(); // Appel initial pour définir l'état en fonction de la taille de l'écran au chargement de la page
+    const selectedRoomLabel = initialRooms.find(room => room.id === selectedValue)?.label || 'Setting Room';
 
-    window.addEventListener('resize', handleResize); // Ajouter un écouteur d'événements pour détecter les changements de taille de l'écran
+    const days = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"];
+    const dates = ["17", "18", "19", "20", "21", "22", "23"];
 
-    return () => {
-      window.removeEventListener('resize', handleResize); // Nettoyer l'écouteur d'événements lors du démontage du composant
-    };
-  }, []);
+    const [isMobile, setIsMobile] = useState(false);
 
-  return (
-    <div className={styles.Nav}>
-        {isMobile ? (
-            <>
-            <Link href="/Home" passHref>
-                <FontAwesomeIcon
-                icon={faHouse}
-                className={router.pathname === '/Home' ? styles.selected : ''}
-                />
-            </Link>
-            <Link href="/Planning" passHref>
-                <FontAwesomeIcon
-                icon={faCalendarDays}
-                className={router.pathname === '/Planning' ? styles.selected : ''}
-                />
-            </Link>
-            <Link href="/Alert" passHref>
-                <FontAwesomeIcon
-                icon={faClipboardList}
-                className={router.pathname === '/Alert' ? styles.selected : ''}
-                />
-            </Link>
-            <Link href="/Setting" passHref>
-                <FontAwesomeIcon
-                icon={faGear}
-                className={router.pathname === '/Setting' ? styles.selected : ''}
-                />
-            </Link>
-            </>
-        ) : (
-            <div>
-                <Link href="/Home" passHref>
-                <FontAwesomeIcon
-                    icon={faHouse}
-                    className={router.pathname === '/Home' ? styles.selected : ''}
-                />
-                </Link>
-                <Link href="/Planning" passHref>
-                <FontAwesomeIcon
-                    icon={faCalendarDays}
-                    className={router.pathname === '/Planning' ? styles.selected : ''}
-                />
-                </Link>
-                <Link href="/Alert" passHref>
-                <FontAwesomeIcon
-                    icon={faClipboardList}
-                    className={router.pathname === '/Alert' ? styles.selected : ''}
-                />
-                </Link>
-                <Link href="/Setting" passHref>
-                <FontAwesomeIcon
-                    icon={faGear}
-                    className={router.pathname === '/Setting' ? styles.selected : ''}
-                />
+    useEffect(() => {
+        const handleResize = () => {
+        setIsMobile(window.innerWidth < 1024); // Définir la largeur à partir de laquelle vous souhaitez afficher le menu mobile
+        };
+
+        handleResize(); // Appel initial pour définir l'état en fonction de la taille de l'écran au chargement de la page
+
+        window.addEventListener('resize', handleResize); // Ajouter un écouteur d'événements pour détecter les changements de taille de l'écran
+
+        return () => {
+        window.removeEventListener('resize', handleResize); // Nettoyer l'écouteur d'événements lors du démontage du composant
+        };
+    }, []);
+
+    return (
+        <div className={styles.Container}>
+        <Title text='Planning'/>
+        <div className={styles.ContentHigh}>
+            <Select 
+                id="01" 
+                options={initialRooms} 
+                selectedValue={selectedValue}
+                onChange={handleSelectChange}    
+            />
+            <Select 
+                id="02" 
+                options={initialWeeks} 
+                selectedValue={selectedValue}
+                onChange={handleSelectChange}    
+            />
+            <div className={styles.ButtonLink}>
+                <Link href={`/Planning/Room/${selectedValue}`}>
+                    <Button text={selectedRoomLabel} variant='primary' icon={faGear}></Button>
                 </Link>
             </div>
-        )}
-      <button className={styles.selected}>
-        <FontAwesomeIcon icon={faArrowRightToBracket} />
-      </button>
-    </div>
-  );
+            
+            
+        </div>
+        <div className={styles.ContentPlanning}>
+            <div className={styles.Content}>
+                <div className={styles.ContentPlanningFistRow}>
+                    <CardPlanning textBlack="" textBlue="" />
+                </div>
+                <div className={styles.ContentHours}>
+                    <CardPlanning textBlack="Début :" textBlue="9h"/>
+                    <CardPlanning textBlack="Fin :" textBlue="12h30"/>
+                </div>
+                <div className={styles.ContentHours}>
+                    <CardPlanning textBlack="Début :" textBlue="13h30"/>
+                    <CardPlanning textBlack="Fin :" textBlue="17h"/>
+                </div>
+            </div>
+
+            {isMobile ? (
+                <div style={{ width: '100vw', overflow: 'hidden' }}>
+                    <Swiper>
+                        {
+                        days.map((day, index) => (
+                            <div className={styles.Content} key={index}>
+                                <div className={styles.ContentPlanningFistRow}>
+                                    <CardPlanning textBlack={day} textBlue={dates[index]} />
+                                </div>
+                                <Link href={`/Planning/Event/${selectedValue}`}>
+                                    <CardPlanningButton id={`btn${index+1}`} />
+                                </Link>
+                                <CardPlanningButton id={`btn${index+2}`} />
+                            </div>
+                        ))}
+                    </Swiper>
+                </div>
+                
+                ) : (
+                    
+                days.map((day, index) => (
+                    <div className={styles.Content} key={index}>
+                    <div className={styles.ContentPlanningFistRow}>
+                        <CardPlanning textBlack={day} textBlue={dates[index]} />
+                    </div>
+                    <Link href={`/Planning/Event/${selectedValue}`}>
+                        <CardPlanningButton id={`btn${index+1}`} />
+                    </Link>
+                        <CardPlanningButton id={`btn${index+2}`} />
+                    </div>
+                ))
+            )}
+            
+            
+        </div>
+        </div>
+    )
+}
+
+export async function getStaticProps() {
+ 
+  const initialRooms = [
+      { value: 'Salon', label: 'Salon', id: 'id1' },
+      { value: 'Chambre', label: 'Chambre', id: 'id2' },
+      { value: 'Cuisine', label: 'Cuisine', id: 'id3' },
+      { value: 'Garage', label: 'Garage', id: 'id4' },
+      { value: 'Salle de bain', label: 'Salle de bain', id: 'id5' }
+  ];
+
+  const initialWeeks = [
+      { value: 'Semaine 1', label: 'Semaine 1', id: 'id1' },
+      { value: 'Semaine 2', label: 'Semaine 2', id: 'id2' },
+      { value: 'Semaine 3', label: 'Semaine 3', id: 'id3' },
+      { value: 'Semaine 4', label: 'Semaine 4', id: 'id4' }
+  ];
+
+  return {
+      props: {
+          initialRooms,
+          initialWeeks
+      }
+  };
 }
